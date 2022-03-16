@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<script type="text/javascript" src="/resource/admin/js/order.js"></script>
+<style type="text/css">
+.form-table th, .form-table td {
+	border: 1px #eee solid;
+	height: 60px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+	text-align: right;
+}
+.form-table td input[type='text'], .form-table td input[type='password'], .form-table td input[type='number'], .form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table td span {
+	margin-left: 10px;
+	color: red;
+}
+</style>
+<title>绑定联系电话</title>
+</head>
+<body>
+	<div style="padding:10px">
+		<table width="100%" class="form-table">
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>基础信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>订单号</td>
+					<td>
+						{$data.jorderid}
+					</td>
+				</tr>
+				<tr>
+					<td>平台订单号</td>
+					<td>
+						{$data.orderid}
+					</td>
+				</tr>				
+				<tr>
+					<td>订单类型</td>
+					<td>
+						{$data.ordertypeStr}
+					</td>
+				</tr>
+				<tr>
+					<td>订单金额</td>
+					<td>
+						{$data.oamount}
+					</td>
+				</tr>
+				<tr>
+					<td>通道费</td>
+					<td>
+						{$data.feeamount}
+					</td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>付款方信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>用户ID</td>
+					<td>
+						{$data.uid ?= ''}
+					</td>
+				</tr>
+				<tr>
+					<td>付款方式</td>
+					<td>{$data.paywayStr}</td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>收款方信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>收款信息</td>
+					<td>
+						<!-- <a href="javascript:void(0);" style="color:blue;" onclick="loadQrcode(this,'asd')">查看</a> -->
+						<img src="{$data._qrcode ?? ''}" alt="" style="max-width: 280px;max-height: 300px;">
+					</td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4></h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>创建时间</td>
+					<td>
+						{if $data.ordertimes}{$data.ordertimes|match_msecdate|date="Y-m-d H:i:s"}{/if}
+					</td>
+				</tr>
+				<tr>
+					<td>支付时间</td>
+					<td>
+						{if $data.paytimes}{$data.paytimes|match_msecdate|date="Y-m-d H:i:s"}{/if}
+					</td>
+				</tr>
+				<tr>
+					<td>确认时间</td>
+					<td>
+						{if $data.ujordertimes}{$data.ujordertimes|match_msecdate|date="Y-m-d H:i:s"}{/if}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

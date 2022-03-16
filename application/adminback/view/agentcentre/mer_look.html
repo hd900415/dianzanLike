@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<script type="text/javascript" src="/resource/admin/js/order.js"></script>
+<style type="text/css">
+.form-table th, .form-table td {
+	border: 1px #eee solid;
+	height: 60px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+	text-align: right;
+}
+.form-table td input[type='text'], .form-table td input[type='password'], .form-table td input[type='number'], .form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table td span {
+	margin-left: 10px;
+	color: red;
+}
+</style>
+<title>绑定联系电话</title>
+</head>
+<body>
+	<div style="padding:10px">
+		<table width="100%" class="form-table">
+			<!-- 商户信息 -->
+			{if $merInfo.types eq 2}
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>商户信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>商户账号</td>
+					<td>
+						{$merInfo.username ?: ''}
+					</td>
+				</tr>
+				<tr>
+					<td>平台名称</td>
+					<td>
+						{$merInfo.platform_name ?: ''}
+					</td>
+				</tr>
+			</tbody>
+			{/if}
+			<!-- 今日信息 -->
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>今日信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $merInfo.types eq 1}
+				<tr>
+					<td>商户注册数</td>
+					<td>
+						{$data.today.regNum ?? 0}
+					</td>
+				</tr>
+				{/if}
+				<tr>
+					<td>总流水</td>
+					<td>
+						{$data.today.details ?? 0}
+					</td>
+				</tr>
+				<tr>
+					<td>收益</td>
+					<td>
+						{$data.today.income ?? 0}
+					</td>
+				</tr>
+			</tbody>
+			<!-- 昨日信息 -->
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>昨日信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $merInfo.types eq 1}
+				<tr>
+					<td>商户注册数</td>
+					<td>
+						{$data.yesterday.regNum ?? 0}
+					</td>
+				</tr>
+				{/if}
+				<tr>
+					<td>总流水</td>
+					<td>
+						{$data.yesterday.details ?? 0}
+					</td>
+				</tr>
+				<tr>
+					<td>收益</td>
+					<td>
+						{$data.yesterday.income ?? 0}
+					</td>
+				</tr>
+			</tbody>
+			<!-- 近七天信息 -->
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>近七天信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $merInfo.types eq 1}
+				<tr>
+					<td>商户注册数</td>
+					<td>
+						{$data.sevenday.regNum ?? 0}
+					</td>
+				</tr>
+				{/if}
+				<tr>
+					<td>总流水</td>
+					<td>
+						{$data.sevenday.details ?? 0}
+					</td>
+				</tr>
+				<tr>
+					<td>收益</td>
+					<td>
+						{$data.sevenday.income ?? 0}
+					</td>
+				</tr>
+			</tbody>
+			<!-- 近一个月信息 -->
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>近一个月信息</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $merInfo.types eq 1}
+				<tr>
+					<td>商户注册数</td>
+					<td>
+						{$data.month.regNum ?? 0}
+					</td>
+				</tr>
+				{/if}
+				<tr>
+					<td>总流水</td>
+					<td>
+						{$data.month.details ?? 0}
+					</td>
+				</tr>
+				<tr>
+					<td>收益</td>
+					<td>
+						{$data.month.income ?? 0}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

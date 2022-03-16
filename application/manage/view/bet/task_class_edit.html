@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>编辑分类</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/resource/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resource/css/mylay.css">
+</head>
+<body>
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <form class="layui-form layui-form-pane" action="">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(中文)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name" value="{$data.group_name}" autocomplete="off" placeholder="请输入分类(中文)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(中文)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info" value="{$data.group_info}" autocomplete="off" placeholder="请输入分类说明(中文)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(繁体)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_ft" value="{$data.group_name_ft}" autocomplete="off" placeholder="请输入分类(繁体)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(繁体)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_ft" value="{$data.group_info_ft}" autocomplete="off" placeholder="请输入分类说明(繁体)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(英文)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_en" value="{$data.group_name_en}" autocomplete="off" placeholder="请输入分类(英文)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(英文)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_en" value="{$data.group_info_en}" autocomplete="off" placeholder="请输入分类说明(英文)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(日语)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_ry" value="{$data.group_name_ry}" autocomplete="off" placeholder="请输入分类(日语)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(日语)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_ry" value="{$data.group_info_ry}" autocomplete="off" placeholder="请输入分类说明(日语)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(西班牙)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_xby" value="{$data.group_name_xby}" autocomplete="off" placeholder="请输入分类(西班牙)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(西班牙)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_xby" value="{$data.group_info_xby}" autocomplete="off" placeholder="请输入分类说明(西班牙)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(印尼)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_ydn" value="{$data.group_name_ydn}" autocomplete="off" placeholder="请输入分类(印尼)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(印尼)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_ydn" value="{$data.group_info_ydn}" autocomplete="off" placeholder="请输入分类说明(印尼)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(越南)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_yn" value="{$data.group_name_yn}" autocomplete="off" placeholder="请输入分类(越南)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(越南)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_yn" value="{$data.group_info_yn}" autocomplete="off" placeholder="请输入分类说明(越南)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(泰语)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_ty" value="{$data.group_name_ty}" autocomplete="off" placeholder="请输入分类(泰语)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(泰语)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_ty" value="{$data.group_info_ty}" autocomplete="off" placeholder="请输入分类说明(泰语)" class="layui-input">
+                                </div>
+                            </div>
+                            
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分类(印度语)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_name_yd" value="{$data.group_name_yd}" autocomplete="off" placeholder="请输入分类(印度语)" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">说明(印度语)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="group_info_yd" value="{$data.group_info_yd}" autocomplete="off" placeholder="请输入分类说明(印度语)" class="layui-input">
+                                </div>
+                            </div>
+                            
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">排序</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="num" value="{$data.num}" autocomplete="off" placeholder="请输入分类排序" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">状态</label>
+                                <div class="layui-input-inline">
+                                     <select name="state" lay-verify="required" lay-search="">
+                                        <option value="1"{if $data.state eq 1} selected{/if}>开启</option>
+                                        <option value="2"{if $data.state eq 2} selected{/if}>关闭</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">分享</label>
+                                <div class="layui-input-inline">
+                                     <select name="is_fx" lay-verify="required" lay-search="">
+                                        <option value="1"{if $data.is_fx eq 1} selected{/if}>开启</option>
+                                        <option value="2"{if $data.is_fx eq 2} selected{/if}>关闭</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">发布</label>
+                                <div class="layui-input-inline">
+                                     <select name="is_f" lay-verify="required" lay-search="">
+                                        <option value="1"{if $data.is_f eq 1} selected{/if}>开启</option>
+                                        <option value="2"{if $data.is_f eq 2} selected{/if}>关闭</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">首页图标</label>
+                                <div class="layui-upload-drag pj-type-icon">
+                                    <i class="layui-icon layui-icon-upload"></i>
+                                    <p>点击上传，或将文件拖拽到此处</p>
+                                    <div {if !$data.h_icon}class="layui-hide"{/if}>
+                                        <hr>
+                                        <img src="{$data.h_icon}" alt="上传成功后渲染" style="max-width: 150px">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="h_icon" value="{$data.h_icon}" class="layui-input">
+                            </div>
+
+                            
+                            <div class="layui-form-item" style="margin-top: 40px;text-align: center;">
+                                <input type="hidden" name="id" value="{$data.id}" autocomplete="off" class="layui-input">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="TaskClassEdit">立即提交</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/resource/layuiadmin/layui/layui.js"></script>
+<script src="/resource/js/manage/init_date.js"></script>
+<script src="/resource/js/manage/bet.js"></script>
+
+<script type="text/javascript" src="/resource/plugs/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/resource/plugs/ueditor/ueditor.all.min.js"></script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" src="/resource/plugs/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+//实例化编辑器
+//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+var ue  = UE.getEditor('editor');
+</script>
+</body>
+</html>

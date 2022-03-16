@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>订单列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/resource/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resource/css/mylay.css">
+</head>
+<body>
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card" style="padding: 10px;">
+                    <form class="layui-form search">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">更新</label>
+                                <div class="layui-input-inline">
+                                    <select class="recharge-withdraw-reload" lay-filter="recharge-withdraw-reload" data-reloadType="userTaskList">
+                                        <option value="0">暂停</option>
+                                        <option value="15">15秒</option>
+                                        <option value="30">30秒</option>
+                                        <option value="60">60秒</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">用户名</label>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" name="username" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">提交时间</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="datetime_range" class="layui-input" readonly>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">状态</label>
+                                <div class="layui-input-inline">
+                                    <select name="status" lay-verify="required" lay-search="">
+                                        <option value="">全部</option>
+                                        {foreach $Think.config.custom.cntaskOrderStatus as $key=>$value}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="text-align: center;">
+                                <button type="button" class="layui-btn" data-type="search">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <table class="layui-hide" id="userTaskList" lay-filter="userTaskList"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部左侧工具栏 -->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="finish" data-status="3">完成</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="fail" data-status="4">失败</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="reset" data-status="2">重审</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="spite" data-status="5">恶意</button>
+        </div>
+    </script>
+    <!-- 表格右侧操作单元 -->
+    <script type="text/html" id="action">
+        <div class="layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-xs" lay-event="edit">
+                <i class="layui-icon">&#xe642;</i>
+            </button>
+		    {{# if (d.status == 2) { }}
+            <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" lay-event="audit">审核</button>
+            {{# } }}
+
+        </div>
+    </script>
+    <!-- 表单元素 -->
+    <!-- 音频 -->
+    <audio id="myaudio" src="/resource/media/user_task_list.mp3" hidden="true">
+
+<script src="/resource/layuiadmin/layui/layui.js"></script>
+<script src="/resource/js/manage/init_date.js"></script>
+<script src="/resource/js/manage/bet.js"></script>
+<script src="/resource/js/manage/media.js"></script>
+<script>
+    layui.use(['layer', 'table'], function(){
+        var $ = layui.$
+        ,layer = layui.layer
+        ,table = layui.table;
+
+        //方法级渲染
+        table.render({
+            elem: '#userTaskList'
+            ,title: '订单列表'
+            ,url: '/manage/bet/userTaskList'
+            ,method: 'post'
+            ,cols: [[
+                {checkbox: true, fixed: true, totalRowText: '合计'}
+				,{field: 'o_id', title: '编号', sort: true, fixed: 'left'}
+                ,{field: 'username', title: '用户名', sort: true, fixed: 'left'}
+                ,{field: 'title', title: '任务标题', sort: true, fixed: 'left'}
+                ,{field: 'status', title: '当前状态', sort: true, templet: function(d){
+                    return d.statusStr;
+                }}
+                ,{field: 'add_time', title: '领取时间', sort: true, templet: function(d){
+                    return d.add_time;
+                }}
+                ,{title: '管理操作', width: '20%', toolbar: '#action'}
+            ]]
+            ,cellMinWidth: 100
+            ,toolbar: '#toolbarDemo'
+            ,defaultToolbar: ['filter', 'print', 'exports']
+            ,totalRow: true
+            ,page: {
+                layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+            }
+            ,skin: 'row' //行边框风格
+            ,even: true //开启隔行背景
+        });
+
+        //监听排序事件
+        table.on('sort(userTaskList)', function(obj){ //注：sort 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            //尽管我们的 table 自带排序功能，但并没有请求服务端。
+            //有些时候，你可能需要根据当前排序的字段，重新向服务端发送请求，从而实现服务端排序，如：
+            table.reload('userTaskList', {
+                initSort: obj //记录初始排序，如果不设的话，将无法标记表头的排序状态。
+                ,where: { //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                    sortField: obj.field //排序字段
+                    ,sortType: obj.type //排序方式
+                }
+            });
+        });
+        //监听行双击事件
+        table.on('rowDouble(userTaskList)', function(obj){
+
+        });
+
+        active = {
+            search: function(){
+                //执行重载
+                table.reload('userTaskList', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    ,where: {
+                        username: $("input[name='username']").val()
+                        ,datetime_range: $("input[name='datetime_range']").val()
+						 ,status: $("select[name='status'] option:selected").val()
+                    }
+                    ,done: function(res, curr, count){
+                        for (var i = 0; i < res.data.length; i++) {
+                            if (res.data[i].statusStr == '处理中' || res.data[i].statusStr == '审核中' || res.data[i].statusStr == 'Reviewing') {
+                                $("#myaudio")[0].play();
+                                return false;
+                            }
+                        }
+                    }
+                }, 'data');
+            }
+        };
+
+        $('.search .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+		 // 监听工具条
+		table.on('tool(userTaskList)', function(obj){
+			switch (obj.event) {
+				case 'audit':
+					layer.open({
+						type: 2,
+						area: ['90%', '90%'],
+						title: '审核订单',
+						content: '/manage/bet/userTaskAudit?id='+obj.data.o_id,
+					});
+					break;
+
+				case 'edit':
+					layer.open({
+						type: 2,
+						area: ['95%', '95%'],
+						title: '编辑订单',
+						content: '/manage/bet/userTaskEdit?id='+obj.data.id,
+					});
+					break;
+
+				case 'del':
+					layer.confirm('确定删除 '+obj.data.title+' ？', {
+						btn: ['确定','取消'] //按钮
+					}, function(){
+						$.ajax({
+							url: "/manage/bet/taskDel",
+							data: {
+								id: obj.data.id
+							},
+							type: "POST",
+							dataType: "json",
+							timeout: 15000,
+							beforeSend: function(){
+								layer.load(1);
+							},
+							success: function(msg){
+								var alertStr = (msg == 1) ? '操作成功' : msg;
+								layer.msg(alertStr, {time: 2000}, function(){
+									if(msg==1){
+										layer.closeAll();
+										table.reload('userTaskList');
+									}
+								});
+							},
+							complete: function(){
+								layer.closeAll("loading");
+							}
+						});
+					}, function(){
+						layer.msg('取消操作', {
+							time: 2000, //2s后自动关闭
+						});
+					});
+					break;
+			}
+		});
+    });
+</script>
+</body>
+</html>

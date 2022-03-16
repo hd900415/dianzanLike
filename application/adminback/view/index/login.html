@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>管理系统</title>
+<link rel="stylesheet" type="text/css" href="/resource/admin/iconfont/iconfont.css">
+<style type="text/css">
+*{
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    color: #444;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    position: relative;
+    background: #fff;
+    font-family: "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", STXihei, "华文细黑", STHeiti, "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", Arial;
+    height: 100%;
+    overflow-x: hidden;
+}
+input,button{
+    font-family: "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", STXihei, "华文细黑", STHeiti, "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", Arial;
+    outline: 0;
+    font-size: 14px;
+}
+img {
+    border: 0;
+}
+
+.login-main {
+    width: 100%;
+    height: 100%;
+    background-color: #2d3a4b;
+    background-size: contain; 
+}
+
+.login-main-con {    
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.login-panel {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.login-panel h1{
+    font-weight: 400;
+    color: #fff;
+    font-size: 32px;
+    margin-top: -10%;
+}
+.login-panel h1 .icon-feiji{
+    font-size: 48px;
+}
+.login-form {
+    width: 360px;
+    margin: 0 auto;
+}
+.form-group{
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+}
+.form-group input[type='text'], .form-group input[type='password'] {
+    width: 100%;
+    border: 0;
+    color: #666;
+    padding:10px 15px 10px 36px;
+    border-radius: 4px;
+}
+.form-group input.vcode{
+    padding-right: 70px;
+}
+.form-group button{
+    width: 100%;
+    background-color: #1565C0;
+    border: 0;
+    border-radius: 4px;
+    height: 46px;
+    color: #fff;
+    font-size: 18px;
+}
+.form-group .iconfont{
+    position: absolute;
+    color: #2196F3;
+    left: 12px;
+    top: 12px;
+    line-height: 1;
+}
+#codeimg{
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    right: 7px;
+}
+
+.fa-send {
+    margin-top: -20px;
+}
+
+.btn {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+</style>
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script>
+function getXmlHttpObject(){
+	var xmlHttp;
+	if(window.ActiveXObject){
+		xmlHttp=new ActiveXObject("MSXML2.XMLHTTP");
+	}else if(window.XMLHttpRequest){
+		xmlHttp=new XMLHttpRequest();
+	}
+	return xmlHttp;
+}
+function flushr(){
+	document.getElementById('codeimg').src = document.getElementById('codeimg').src+'?'+Math.random();
+}
+
+function get_body_size(){
+	var getBodySize = [];
+	if(window.parent.window.innerHeight){
+		getBodySize[0] = window.parent.window.innerWidth;
+		getBodySize[1] = window.parent.window.innerHeight;
+	}else{
+		with(window.parent.document.documentElement){
+			getBodySize[0] = clientWidth;
+			getBodySize[1] = clientHeight;
+		}
+	}
+	return getBodySize;
+}
+function Login(){
+	var obj = document.login;
+	var user = obj.user.value;
+	var pass = obj.pass.value;
+	var code = obj.code.value;
+	if(user.length == 0){
+		alert('请输入用户名！');
+		obj.user.focus();
+		return false;
+	}
+	if(pass.length == 0){
+		alert('请输入密码！');
+		obj.pass.focus();
+		return false;
+	}
+	if(code.length == 0){
+		alert('请输入4位验证码！');
+		obj.code.focus();
+		return false;
+	}
+	$.post("/admin/index/login",{
+		user:user,
+		pass:pass,
+		code:code
+	},function(res){
+		switch(res){
+			case 'succ':
+				window.location.reload();
+				break;
+			case 'code':
+				alert('验证码输入错误！');
+				flushr();
+				obj.code.value = '';
+				obj.code.focus();
+				break;
+			case 'time':
+				alert('请5分种后再登录！');
+				window.location.reload();
+				break;
+			case 'lock':
+				alert('账户已被锁定！请与系统管理员联系寻回密码');
+				window.location.reload();
+				break;
+			case 'close':
+				alert('账户已被冻结！');
+				window.location.reload();
+				break;
+			default:
+				alert('登陆失败！');
+				window.location.reload();
+				break;
+		}	
+	});
+	return false;
+}
+function Loading(){
+	var h = get_body_size();
+	var wi = (h[0]-500)/2;
+	var hi = (h[1]-200)/2;
+	var obj = document.getElementById('logindiv');
+	obj.style.left = wi+'px';
+	obj.style.top = hi+'px';
+	obj.style.display = '';
+	document.getElementById('codeimg').onclick = document.getElementById('codeimg').onclick = function(){
+		flushr();
+	}
+}
+
+window.onload = function(){
+    Loading();
+}
+window.onresize = function(){
+    Loading();
+}
+</script>
+</head>
+<body>
+	<div class="login-main">
+        <div class="login-main-con">
+            <div class="login-panel">
+                <h1>
+                    <i class="iconfont icon-feiji"></i> 登录 Login
+                </h1>
+                <form id="login" class="login-form" name="login" method="post" onsubmit="return Login();">
+                    <div class="form-group">
+                        <input type="text" name="user" maxlength="16" placeholder="用户名">
+                        <i class="iconfont icon-name"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="pass" maxlength="16" placeholder="密码">
+                        <i class="iconfont icon-mima"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="code" maxlength="4" id="code" class="vcode" placeholder="验证码">
+                        <i class="iconfont icon-code"></i>
+                        <img id="codeimg" onClick="flushr();" src="/admin/index/code" alt="看不清楚可点击这里更换！" width="80" height="35">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">登 录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

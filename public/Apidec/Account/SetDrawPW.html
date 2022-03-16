@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Account.setDrawPW - 在线接口文档</title>
+
+	<link rel="stylesheet" href="../css/semantic.min.css">
+    <link rel="stylesheet" href="../css/table.min.css">
+    <link rel="stylesheet" href="../css/container.min.css">
+    <link rel="stylesheet" href="../css/message.min.css">
+    <link rel="stylesheet" href="../css/label.min.css">
+
+</head>
+
+<body>
+
+<br /> 
+
+    <div class="ui text container" style="max-width: none !important;">
+        <div class="ui floating message">
+			<h2 class="ui header">接口：Account.setDrawPW</h2><br/><span class="ui teal tag label"> 设置支付密码</span>            
+			<div class="ui raised segment">
+                <span class="ui red ribbon label">接口说明</span>
+                <div class="ui message">
+                    <p> 设置支付密码</p>
+                </div>
+            </div>
+            <h3>接口参数</h3>
+            <table class="ui red celled striped table" >
+                <thead>
+                    <tr><th>参数名字</th><th>类型</th><th>是否必须</th><th>默认值</th><th>其他</th><th>说明</th></tr>
+                </thead>
+                <tbody>
+                	<tr><td>token</td><td>字符串</td><td><font color="red">必须</font></td><td></td><td></td><td>登录标志</td></tr>
+					<tr><td>drawword_n</td><td>字符串</td><td><font color="red">必须</font></td><td></td><td></td><td>支付密码</td></tr>
+                	<tr><td>re_drawword_n</td><td>数字</td><td><font color="red">必须</font></td><td></td><td></td><td>支付密码</td></tr>
+                </tbody>
+            </table>
+            <h3>返回结果</h3>
+            <table class="ui green celled striped table" >
+                <thead>
+                    <tr><th width="91">返回字段</th><th width="182">类型</th><th width="1505">说明</th></tr>
+                </thead>
+                <tbody>
+					<tr>
+						<td>data.code</td><td>整型</td><td>操作码，<br/>
+							code = 0 设置失败<br/>
+							code = 1 设置成功<br/>
+							code = 2 密码格式错误(6-16位，字母、数字组成。必须字母开头,字母必须小写)<br/>
+							code = 3 两次密码不一致<br/>
+							code = 4 资金密码已经设置<br/>
+							code = 5 资金密码不能与用户密码一致<br/>
+							code = 7 资金密码不能与用户密码一致
+						</td>
+					</tr>
+					<tr><td>data.code_dec</td><td>字符串</td><td>返回代码描述</td></tr>
+                </tbody>
+        </table>
+		</div>
+    </div>
+</body>
+</html>

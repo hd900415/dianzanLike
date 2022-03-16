@@ -1,0 +1,23 @@
+
+
+服务器系统：Linux + Centos7.x + 宝塔
+
+亲测环境：Nginx 1.18.0 + PHP5.6 + Mysql5.5 + redis
+
+PHP扩展安装：redis + readline + recode
+
+运行目录：/public
+
+Nginx伪静态
+location / {
+	if (!-e $request_filename){
+		rewrite  ^(.*)$  /index.php?s=$1  last;   break;
+	}
+}
+
+数据库配置文件：/config/database.php
+
+后台地址：/manage
+
+前台账号：15555555556
+前台密码：15555555556

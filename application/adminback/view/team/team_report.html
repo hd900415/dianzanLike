@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<script src="/resource/admin/js/initialization.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/resource/admin/js/team.js"></script>
+<title>团队报表</title>
+<style type="text/css">
+.form-table th, .form-table td {
+	border: 1px #eee solid;
+	height: 30px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+}
+input,select,textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	max-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button,.form-table th button,.button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table td span {
+	margin-left: 10px;
+	color: red;
+}
+.form-table tbody tr:hover {
+	background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>首页
+		<span class="c-gray en">&gt;</span>团队报表
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+			<i class="Hui-iconfont">&#xe68f;</i>
+		</a>
+	</nav>
+	<div style="padding: 30px">
+		<form id="searchform"  action="/admin/team/teamReport" method="get">
+			账户
+			<input type="text" name="username" value="{$where.username ?? ''}">&nbsp;&nbsp;
+			时间
+			<input type="text" name="date_range" value="{$where.date_range ?? ''}" style="width:300px;" readonly>&nbsp;&nbsp;
+			<input type="submit" value="搜索" class="button"/>
+		</form>
+		<div style="float:right; display:block; margin:20px 2px;">
+		</div>
+		<table width="100%" class="form-table">
+			<thead>
+				<tr>
+					<th>账户</th>
+					<th>充值</th>
+					<th>提现</th>
+					<th>订单</th>
+					<th>买币</th>
+					<th>卖币</th>
+					<th>抢币</th>
+					<th>收币</th>
+					<th>活动</th>
+					<th>佣金</th>
+					<th>返还</th>
+					<th>手续费</th>
+					<th>返点</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $data}
+				{foreach $data as $key=>$value}
+				<tr>
+					<td>{$value.username ?: 0}</td>
+					<td>{$value.recharge ?: 0}</td>
+					<td>{$value.withdrawal ?: 0}</td>
+					<td>{$value.order ?: 0}</td>
+					<td>{$value.buy ?: 0}</td>
+					<td>{$value.sell ?: 0}</td>
+					<td>{$value.rob ?: 0}</td>
+					<td>{$value.recovery ?: 0}</td>
+					<td>{$value.activity ?: 0}</td>
+					<td>{$value.commission ?: 0}</td>
+					<td>{$value.giveback ?: 0}</td>
+					<td>{$value.fee ?: 0}</td>
+					<td>{$value.rebate ?: 0}</td>
+					<td>
+						{if $value.sid neq 0 and $value.sid neq $userId}
+						<button type="button" class="button" onClick="window.location.href='/admin/team/teamReport?date_range={$where.date_range}&sid={$value.sid}'">上级</button>
+						{/if}
+						<button type="button" class="button" onClick="window.location.href='/admin/team/teamReport?date_range={$where.date_range}&id={$key}'">下级</button>
+					</td>
+				</tr>
+				{/foreach}
+				<tr>
+					<td>分页统计</td>
+					<td>{$total.totalPage.recharge ?: 0}</td>
+					<td>{$total.totalPage.withdrawal ?: 0}</td>
+					<td>{$total.totalPage.order ?: 0}</td>
+					<td>{$total.totalPage.buy ?: 0}</td>
+					<td>{$total.totalPage.sell ?: 0}</td>
+					<td>{$total.totalPage.rob ?: 0}</td>
+					<td>{$total.totalPage.recovery ?: 0}</td>
+					<td>{$total.totalPage.activity ?: 0}</td>
+					<td>{$total.totalPage.commission ?: 0}</td>
+					<td>{$total.totalPage.giveback ?: 0}</td>
+					<td>{$total.totalPage.fee ?: 0}</td>
+					<td>{$total.totalPage.rebate ?: 0}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>全部统计</td>
+					<td>{$total.totalAll.recharge ?: 0}</td>
+					<td>{$total.totalAll.withdrawal ?: 0}</td>
+					<td>{$total.totalAll.order ?: 0}</td>
+					<td>{$total.totalAll.buy ?: 0}</td>
+					<td>{$total.totalAll.sell ?: 0}</td>
+					<td>{$total.totalAll.rob ?: 0}</td>
+					<td>{$total.totalAll.recovery ?: 0}</td>
+					<td>{$total.totalAll.activity ?: 0}</td>
+					<td>{$total.totalAll.commission ?: 0}</td>
+					<td>{$total.totalAll.giveback ?: 0}</td>
+					<td>{$total.totalAll.fee ?: 0}</td>
+					<td>{$total.totalAll.rebate ?: 0}</td>
+					<td></td>
+				</tr>
+				{else /}
+				<tr>
+					<td colspan="14" style="text-align: center;font-weight: normal;color: #999">暂无数据</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+		<div class="page">{$page|raw}</div>
+	</div>
+</body>
+</html>

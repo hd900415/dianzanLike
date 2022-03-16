@@ -1,0 +1,23 @@
+/**
+ * 注意：务必将“对应的充值渠道ID”这一值修改掉
+ */
+ 
+/**
+ * 网银
+ * 地址：http://{HTTP_HOST}/payType/haoPay/online.php
+ */
+
+
+
+/**
+ * 扫码（暂时未能获取到二维码）
+ * 地址：http://{HTTP_HOST}/payType/haoPay/scan.php
+ */
+INSERT INTO `ly_bank` (`bank_name`, `bank_code`, `c_start_time`, `c_end_time`, `c_min`, `c_max`, `q_start_time`, `q_end_time`, `q_min`, `q_max`, `c_state`, `q_state`, `pay_type`, `add_time`) VALUES ('支付宝', 'alipay', '00:00:00', '00:00:00', '20', '3000', '10:00:00', '02:00:00', '100', '50000', '1', '1', '对应的充值渠道ID', '1512022965');
+
+
+/**
+ * 扫码（H5）
+ * 地址：http://{HTTP_HOST}/payType/haoPay/h5.php
+ */
+INSERT INTO `ly_bank` (`bank_name`, `bank_code`, `c_start_time`, `c_end_time`, `c_min`, `c_max`, `q_start_time`, `q_end_time`, `q_min`, `q_max`, `c_state`, `q_state`, `pay_type`, `add_time`) VALUES ('支付宝', 'alipay', '00:00:00', '00:00:00', '20', '3000', '10:00:00', '02:00:00', '100', '50000', '1', '1', '对应的充值渠道ID', '1512022965');

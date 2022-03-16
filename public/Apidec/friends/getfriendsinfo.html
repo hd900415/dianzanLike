@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Friends.getfriendsinfo - 在线接口文档</title>
+<link rel="stylesheet" href="../css/semantic.min.css">
+<link rel="stylesheet" href="../css/table.min.css">
+<link rel="stylesheet" href="../css/container.min.css">
+<link rel="stylesheet" href="../css/message.min.css">
+<link rel="stylesheet" href="../css/label.min.css">
+</head>
+
+<body>
+<br />
+<div class="ui text container" style="max-width: none !important;">
+  <div class="ui floating message">
+    <h2 class="ui header">接口：Friends.getfriendsinfo</h2>
+    <br/>
+    <span class="ui teal tag label"> 获取密友信息</span>
+    <div class="ui raised segment"> <span class="ui red ribbon label">接口说明</span>
+      <div class="ui message">
+        <p> 获取密友信息</p>
+      </div>
+    </div>
+    <h3>接口参数</h3>
+    <table class="ui red celled striped table" >
+      <thead>
+        <tr>
+          <th>参数名字</th>
+          <th>类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>其他</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：1</td>
+          <td> 时间标签</td>
+        </tr>
+        <tr>
+          <td>uid</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：16</td>
+          <td>用户ID</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：16</td>
+          <td>好友列表id</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>返回结果</h3>
+    <table class="ui green celled striped table" >
+      <thead>
+        <tr>
+          <th width="91">返回字段</th>
+          <th width="182">类型</th>
+          <th width="1505">说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data.code</td>
+          <td>整型</td>
+          <td>操作码，<br/>
+            code = 0 <br/>
+            code = 1 </td>
+        </tr>
+        <tr>
+          <td>data.code_dec</td>
+          <td>字符串</td>
+          <td>返回代码描述</td>
+        </tr>
+        <tr>
+          <td>data.info</td>
+          <td>array</td>
+          <td>密聊数据：
+          <br>
+			id     id<br>
+            user_id   Uid<br>
+		 	friend_id   好友ID<br>
+            nickname   好友昵称<br>
+            header  头像<br>
+            mid     密号(搜索后显示)<br>
+            autograph     签名<br>
+            sex			  性别<br>
+			area		  地区<br>
+            is_v_d		  消息免打扰;单独对这个好友接收的聊天不提示声音<br>
+            is_z_d		  置顶聊天<br>
+            get_type	  通过哪种方式查看好友/如果新密友显示回复框，对接获取回复记录接口<br>
+            new_type      新密友 通知类型 			'已请求',		//1
+                        '查看',		//2
+                        '已通过',		//3
+                        '已添加',		//4
+                        '被拒绝',   //5
+                        '已拒绝',  //6
+                        '已删除',	  //7
+                        '被删除',	  //8
+
+                                            <br>
+				state      好友状态<br> 
+                            '通过',		//1 
+                            '管理员删除',	//2
+                            '审核',		//3 
+                            '拒绝',	  //4
+                            '删除',	 //5
+					<br>
+
+			is_p //1主动添加好友,2被动添加好友
+
+
+			<br>
+状态值说明 3 审核：is_p=2被发送方：用通过/拒绝<br>
+             调用setfriendsinfo设置好友信息 通过state=3; 拒绝	state=4;	删除state=5	
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

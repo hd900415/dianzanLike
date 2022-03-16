@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>排行报表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/resource/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resource/css/mylay.css">
+    <link rel="stylesheet" href="/resource/css/page.css">
+</head>
+<body>
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card" style="padding: 10px;">
+                    <form class="layui-form" action="/manage/report/ranking" method="get">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">排名类型</label>
+                                <div class="layui-input-inline">
+                                    <select name="orderby" lay-verify="required" lay-search="" lay-filter="isUser">
+                                        <option value="recharge"    {if $where.orderby=='recharge'} selected="selected"{/if}>充值</option>
+                                        <option value="withdrawals" {if $where.orderby=='withdrawals'} selected="selected"{/if}>提现</option>
+                                        <option value="order"       {if $where.orderby=='order'} selected="selected"{/if}>投资</option>
+                                        <option value="payment"     {if $where.orderby=='payment'} selected="selected"{/if}>收益</option>
+                                        <option value="repayment"   {if $where.orderby=='repayment'} selected="selected"{/if}>佣金</option>
+                                        <option value="regment"     {if $where.orderby=='regment'} selected="selected"{/if}>活动</option>
+                                        <option value="popment"     {if $where.orderby=='popment'} selected="selected"{/if}>投资付息</option>
+                                        <option value="other"       {if $where.orderby=='other'} selected="selected"{/if}>其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">不显示零结算用户</label>
+                                <div class="layui-input-inline">
+                                    <select name="filter" lay-verify="required" lay-search="" lay-filter="isUser">
+                                        <option value="0"{if !isset($where.filter) or $where.filter==0} selected="selected"{/if}>否</option>
+                                        <option value="1"{if isset($where.filter) and $where.filter==1} selected="selected"{/if}>是</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">时间</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="datetime_range" value="{$where.datetime_range ?? ''}" class="layui-input" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="text-align: center;"><button type="submit" class="layui-btn">搜索</button></p>
+                    </form>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <table class="layui-table" lay-even lay-size="sm">
+                        <thead>
+                            <tr>
+                                <th>会员账号</th>
+                                <th>存款</th>
+                                <th>取款</th>
+                                <th>投资</th>
+                                <th>收益</th>
+                                <th>佣金</th>
+                                <th>活动</th>
+                                <th>投资付息</th>
+                                <th>其他</th>
+                                <th>余额</th>
+                                <th>盈亏</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {if $data}
+                            {foreach $data as $key=>$value }
+                            <tr>
+                                <td>{$value.username}</td>
+                                <td>{$value.recharge ?? 0}</td>
+                                <td>{$value.withdrawal ?? 0}</td>
+                                <td>{$value.order ?? 0}</td>
+                                <td>{$value.payment ?? 0}</td>
+                                <td>{$value.repayment ?? 0}</td>
+                                <td>{$value.regment ?? 0}</td>
+                                <td>{$value.popment ?? 0}</td>
+                                <td>{$value.popment ?? 0}</td>
+                                <td>{$value.balance ?? 0}</td>
+                                <td>{$value.loss ?? 0}</td>
+                            </tr>
+                            {/foreach}
+                            {else /}
+                            <tr>
+                                <td colspan="11" style="text-align: center;">暂无数据</td>
+                            </tr>
+                            {/if}
+                        </tbody>
+                    </table>
+                    {$page|raw}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/resource/layuiadmin/layui/layui.js"></script>
+<script src="/resource/js/manage/init_date.js"></script>
+<script src="/resource/js/manage/report.js"></script>
+</body>
+</html>

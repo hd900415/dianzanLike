@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>盈亏报表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/resource/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resource/css/mylay.css">
+    <link rel="stylesheet" href="/resource/css/page.css">
+</head>
+<body>
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card" style="padding: 10px;">
+                    <form class="layui-form" action="/manage/report/profit" method="get">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">时间</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="date_range" value="{$where.date_range ?? ''}" class="layui-input" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="text-align: center;"><button type="submit" class="layui-btn">搜索</button></p>
+                    </form>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <table class="layui-table" lay-even lay-size="sm">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>会员买币</th>
+                                <th>会员提币</th>
+                                <th>会员收益返还</th>
+                                <th>会员活动</th>
+                                <th>商户手续费</th>
+                                <th>代理商户返点</th>
+                                <th>商户提现</th>
+                                <th>盈亏（商户手续费 - 代理商户返点 - 会员收益返还）</th>
+                                <th>现金盈亏（会员买币 - 会员提币 - 商户提现）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {if $data}
+                            {foreach $data as $key=>$value }
+                            <tr>
+                                <td>{$value.date|date="Y-m-d"}</td>
+                                <td>{$value.user.buy ?: 0}</td>
+                                <td>{$value.user.recovery ?: 0}</td>
+                                <td>{$value.user.giveback ?: 0}</td>
+                                <td>{$value.user.activity ?: 0}</td>
+                                <td>{$value.merchant.fee ?: 0}</td>
+                                <td>{$value.merchant.rebate ?: 0}</td>
+                                <td>{$value.merchant.withdrawal ?: 0}</td>
+                                <td>{$value.profitLoss}</td>
+                                <td>{$value.cashProfitLoss}</td>
+                            </tr>
+                            {/foreach}
+                            {else /}
+                            <tr>
+                                <td colspan="10">暂无数据</td>
+                            </tr>
+                            {/if}
+                            <!-- 本页统计 -->
+                            <tr>
+                                <td>本页统计</td>
+                                <td>{$totalPage.user.buy}</td>
+                                <td>{$totalPage.user.recovery}</td>
+                                <td>{$totalPage.user.giveback}</td>
+                                <td>{$totalPage.user.activity}</td>
+                                <td>{$totalPage.merchant.fee}</td>
+                                <td>{$totalPage.merchant.rebate}</td>
+                                <td>{$totalPage.merchant.withdrawal}</td>
+                                <td>{$totalPage.profitLoss}</td>
+                                <td>{$totalPage.cashProfitLoss}</td>
+                            </tr>
+                            <!-- 全部统计 -->
+                            <tr>
+                                <td>全部统计</td>
+                                <td>{$totalAll.user.buy}</td>
+                                <td>{$totalAll.user.recovery}</td>
+                                <td>{$totalAll.user.giveback}</td>
+                                <td>{$totalAll.user.activity}</td>
+                                <td>{$totalAll.merchant.fee}</td>
+                                <td>{$totalAll.merchant.rebate}</td>
+                                <td>{$totalAll.merchant.withdrawal}</td>
+                                <td>{$totalAll.profitLoss}</td>
+                                <td>{$totalAll.cashProfitLoss}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   {$page|raw}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/resource/layuiadmin/layui/layui.js"></script>
+<script src="/resource/js/manage/init_date.js"></script>
+<script src="/resource/js/manage/report.js"></script>
+</body>
+</html>

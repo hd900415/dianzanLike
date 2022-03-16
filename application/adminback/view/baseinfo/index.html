@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<script type="text/javascript" src="/resource/admin/js/baseinfo.js"></script>
+<title>基本信息</title>
+<style type="text/css">
+.form-table th, .form-table td {
+	border: 1px #eee solid;
+	height: 50px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+	text-align: right;
+}
+.form-table td input[type='text'], .form-table td input[type='password'], .form-table td input[type='number'], .form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button,.form-table th button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table td span {
+	margin-left: 10px;
+	color: red;
+}
+.form-table tbody tr:hover {
+	background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>首页
+		<span class="c-gray en">&gt;</span>基本信息
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+			<i class="Hui-iconfont">&#xe68f;</i>
+		</a>
+	</nav>
+	<div style="padding: 30px">
+		<!-- 商家信息 -->
+		<table width="100%" class="form-table">
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>资产</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>我的总资产</td>
+					<td>
+						{$info.balance + $info.frozen_balance}
+					</td>
+				</tr>
+				<tr>
+					<td>可提现资产</td>
+					<td>
+						{$info.balance ?: 0}
+					</td>
+				</tr>
+				<tr>
+					<td>昨日收益</td>
+					<td>
+						{$yesterdayData.rebate ?: 0}
+					</td>
+				</tr>
+				<tr>
+					<td>联系电话</td>
+					<td>
+						{if !$info.phone}
+						<button class="button" onClick="bind_info('bindPhone')">绑定</button>
+						{else /}
+						{$info.phone}
+						{/if}
+					</td>
+				</tr>
+				<tr>
+					<td>设置密码</td>
+					<td>
+						<button class="button edit_pwd">修改密码</button>
+						<button class="button set_pay_pwd">设置交易密码</button>
+					</td>
+				</tr>
+			</tbody>
+			<!-- 费率 -->
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4>费率</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>支付宝充值费率</td>
+					<td>
+						充值范围：{$setting.m_alipay_recharge_min}-{$setting.m_alipay_recharge_max} 费率：{$info.alipay_fee/100}
+					</td>
+				</tr>
+				<tr>
+					<td>微信充值费率</td>
+					<td>
+						充值范围：{$setting.m_wechat_recharge_min}-{$setting.m_wechat_recharge_max} 费率：{$info.wechat_fee/100}
+					</td>
+				</tr>
+				<tr>
+					<td>银行卡充值费率</td>
+					<td>
+						充值范围：{$setting.m_bank_recharge_min}-{$setting.m_bank_recharge_max} 费率：{$info.bank_fee/100}
+					</td>
+				</tr>
+			</tbody>
+			<!-- 团队手续费比例调整 -->
+			<thead>
+				<tr align="center">
+					<th colspan="2">
+						<h4 style="display:inline;">团队手续费比例调整</h4>
+						<span style="color:red;margin-left: 20px;">*更改此处将调整整条团队线的费率，请谨慎操作。上调填正数（如：0.1），下调填负数（如：-0.1）</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>支付宝充值费率</td>
+					<td>
+						<input type="text" name="alipay_fee" value="" placeholder="">
+						<span>调整范围：{$limit.alipay.min} - {$limit.alipay.max}，如此项无需调整请留空。</span>
+					</td>
+				</tr>
+				<tr>
+					<td>微信充值费率</td>
+					<td>
+						<input type="text" name="wechat_fee" value="" placeholder="">
+						<span>调整范围：{$limit.wechat.min} - {$limit.wechat.max}，如此项无需调整请留空。</span>
+					</td>
+				</tr>
+				<tr>
+					<td>银行卡充值费率</td>
+					<td>
+						<input type="text" name="bank_fee" value="" placeholder="">
+						<span>调整范围：{$limit.bank.min} - {$limit.bank.max}，如此项无需调整请留空。</span>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button class="button fee_edit">提交</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 收付款管理 -->
+		<table width="100%" class="form-table" style="margin:30px 0;">
+			<thead>
+				<tr align="center">
+					<th colspan="5">
+						<h4 style="float:left;">收付款管理</h4>						
+						<button class="button bind_bankcard" style="float:right;">绑定账号</button>
+						<div style="clear: both;"></div>
+					</th>
+				</tr>
+				<tr align="center">
+					<th>银行卡帐号</th>
+					<th>持卡人姓名</th>
+					<th>开户银行</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $bank}
+				{foreach $bank as $key=>$value}
+				<tr>
+					<td style="text-align: left;font-weight: normal;">{$value.card_number}</td>
+					<td>{$value.card_name}</td>
+					<td>{$value.bank_name}</td>
+				</tr>
+				{/foreach}
+				{else /}
+				<tr>
+					<td colspan="3" style="text-align: center;font-weight: normal;color: #999">暂无数据</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>User.Login - 在线接口文档</title>
+
+	<link rel="stylesheet" href="../css/semantic.min.css">
+    <link rel="stylesheet" href="../css/table.min.css">
+    <link rel="stylesheet" href="../css/container.min.css">
+    <link rel="stylesheet" href="../css/message.min.css">
+    <link rel="stylesheet" href="../css/label.min.css">
+
+</head>
+
+<body>
+
+<br /> 
+
+    <div class="ui text container" style="max-width: none !important;">
+        <div class="ui floating message">
+			<h2 class="ui header">接口：User.Login</h2><br/><span class="ui teal tag label"> 用户登录接口</span>            
+			<div class="ui raised segment">
+                <span class="ui red ribbon label">接口说明</span>
+                <div class="ui message">
+                    <p> 用户使用该接口登录平台</p>
+                </div>
+            </div>
+            <h3>接口参数</h3>
+            <table class="ui red celled striped table" >
+                <thead>
+                    <tr><th>参数名字</th><th>类型</th><th>是否必须</th><th>默认值</th><th>其他</th><th>说明</th></tr>
+                </thead>
+                <tbody>
+					<tr><td>username</td><td>数字</td><td><font color="red">必须</font></td><td></td><td> 最小：11</td><td>用户名，这里用户名使用手机号</td></tr>
+                    <tr><td>password</td><td>字符串</td><td><font color="red">必须</font></td><td></td><td> 最小：6 最大：16</td><td>用户密码</td></tr>    
+                    <!--tr><td>sign</td><td>字符串</td><td><font color="red">必须</font></td><td></td><td></td><td>平台标识</td></tr-->
+                </tbody>
+            </table>
+            <h3>返回结果</h3>
+            <table class="ui green celled striped table" >
+                <thead>
+                    <tr><th width="91">返回字段</th><th width="182">类型</th><th width="1505">说明</th></tr>
+                </thead>
+                <tbody><tr>
+                            <td>data.code</td><td>整型</td><td>操作码，<br/>
+                               code = 0 用户名、密码或者平台sign为空 <br/>
+                               code = 1 登录成功<br/>                               
+                               code = 2 该账号已锁定<br/>
+                               code = 3 注册成功<br/>                               
+                               code = 4 注册失败<br/><br/>
+                            </td>
+                       </tr>
+                       <tr><td>data.code_dec</td><td>字符串</td><td>返回代码描述</td></tr>                       
+                       <tr><td>data.info.userid</td><td>数字</td><td>用户id</td></tr>
+                       <tr><td>data.info.username</td><td>字符串</td><td>用户名</td></tr>
+                       <tr><td>data.info.balance</td><td>数字</td><td>用户余额</td></tr>
+                       <tr><td>data.info.frozen_balance</td><td>数字</td><td>冻结余额</td></tr>
+                       <tr><td>data.info.state</td><td>数字</td><td>用户账户状态。2冻结</td></tr>
+                       <tr><td>data.info.token</td><td>字符串</td><td>时间标签</td></tr>
+                       <tr><td>data.info.bankcount</td><td>字符串</td><td>绑定银行卡的数量</td></tr>                       
+                       <tr><td>data.info.qrcodcount</td><td>数字</td><td>绑定二维码的数量</td></tr>
+                </tbody>
+        </table>
+		</div>
+    </div>
+</body>
+</html>

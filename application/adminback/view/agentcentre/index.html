@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<script src="/resource/admin/js/initialization.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/resource/admin/js/agentcentre.js"></script>
+<title>代理中心</title>
+<style type="text/css">
+.form-table th, .form-table td {
+	border: 1px #eee solid;
+	height: 30px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+}
+input,select,textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	max-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button,.form-table th button,.button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table td span {
+	margin-left: 10px;
+	color: red;
+}
+.form-table tbody tr:hover {
+	background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>首页
+		<span class="c-gray en">&gt;</span>代理中心
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+			<i class="Hui-iconfont">&#xe68f;</i>
+		</a>
+	</nav>
+	<div style="padding: 30px">
+		<form id="searchform"  action="/admin/agentcentre/index" method="get">
+			账号
+			<input type="text" name="username" value="{if isset($data['where']['username']) and $data['where']['username']}{$data.where.username}{/if}">&nbsp;&nbsp;
+			商户类型
+			<select name="types">
+				{foreach $data.merchantType as $key=>$value}
+				<option value="{$key}"{if isset($data.where.types) and $data.where.types eq $key} selected="selected"{/if}>{$value}</option>
+				{/foreach}
+			</select>&nbsp;&nbsp;
+			认证状态
+			<select name="status">
+				{foreach $data.merchantVerify as $key=>$value}
+				<option value="{$key}"{if isset($data.where.status) and $data.where.status eq $key} selected="selected"{/if}>{$value}</option>
+				{/foreach}
+			</select>&nbsp;&nbsp;
+			注册日期
+			<input type="text" name="date_range" value="{if isset($data.where.date_range) and $data.where.date_range}{$data.where.date_range}{/if}" style="width:300px;" readonly>&nbsp;&nbsp;
+			<input type="submit" value="搜索" class="button"/>
+		</form>
+		<div style="float:right;margin:10px 2px;">
+			<button class="button mer_add">添加商户</button>
+		</div>
+		<table width="100%" class="form-table">
+			<thead>				
+				<tr>
+					<th>账号</th>
+					<th>类型</th>
+					<th>手续费比例</th>
+					<th>状态</th>
+					<th>当日新增商户数量</th>
+					<th>商户总数量</th>
+					<th>最后登录ip</th>
+					<th>操作</th>
+				</tr>				
+			</thead>
+			<tbody>
+				{if $data.data}
+				{foreach $data.data as $key=>$value}
+				<tr>
+					<td>{$value.username ?? ''}</td>
+					<td>{$value.typesStr ?? ''}</td>
+					<td>
+						支付宝：{$value.alipay_fee}<br>
+						微&nbsp;&nbsp;&nbsp;信：{$value.wechat_fee}<br>
+						银&nbsp;&nbsp;&nbsp;行：{$value.bank_fee}<br>
+					</td>
+					<td>{$value.statusStr ?? ''}</td>
+					<td>{$value.todayNum ?: 0}</td>
+					<td>{$value.merNum ?: 0}</td>
+					<td>{$value.last_ip ?? ''}</td>
+					<td>
+						<button class="button" onclick="mer_edit(this, {$value.id});">编辑</button>
+						<button class="button" onclick="mer_look(this, {$value.id});">查看</button>
+					</td>
+				</tr>
+				{/foreach}
+				{else /}
+				<tr>
+					<td colspan="8" style="text-align: center;font-weight: normal;color: #999">暂无数据</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+		<div class="page">{$data.page}</div>
+	</div>
+</body>
+</html>

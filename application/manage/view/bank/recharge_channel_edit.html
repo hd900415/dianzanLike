@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>添加充值渠道</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/resource/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resource/css/mylay.css">
+</head>
+<body>
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <form class="layui-form layui-form-pane" action="">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">名称</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="name" value="{$data.name ?? ''}" autocomplete="off" placeholder="请输入充值渠道名称" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">编码</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="code" value="{$data.code ?? ''}" autocomplete="off" placeholder="请输入充值渠道编码" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">提交地址</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="submitUrl" value="{$data.submitUrl ?? ''}" autocomplete="off" placeholder="请输入充值渠道提交地址" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">固定金额</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fixed" value="{$data.fixed ?? ''}" autocomplete="off" placeholder="请输入充值渠道固定金额" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最小金额</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="minPrice" value="{$data.minPrice ?? ''}" autocomplete="off" placeholder="请输入充值渠道最小充值金额" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最大金额</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="maxPrice" value="{$data.maxPrice ?? ''}" autocomplete="off" placeholder="请输入充值渠道最大充值金额" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">手续费</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fee" value="{$data.fee ?? ''}" autocomplete="off" placeholder="请输入充值渠道手续费比例" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">%</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">渠道类型</label>
+                                <div class="layui-input-inline">
+                                    <select name="mode" lay-verify="required" lay-search="">
+                                        <option value="">请选择</option>
+                                        {foreach $Think.config.custom.rechargeType as $key=>$value }
+                                        <option value="{$key}"{if isset($data.mode) and $data.mode eq $key} selected{/if}>{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">请选择渠道类型</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">所属客户端</label>
+                                <div class="layui-input-inline">
+                                    <select name="type" lay-verify="required" lay-search="">
+                                        <option value="">请选择</option>
+                                        <option value="app"{if isset($data.type) and $data.type eq 'app'} selected{/if}>APP</option>
+                                        <option value="pc"{if isset($data.type) and $data.type eq 'pc'} selected{/if}>PC</option>
+                                    </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">请选择渠道所属客户端类型</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">排序</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="sort" value="{$data.sort ?? ''}" autocomplete="off" placeholder="请输入充值渠道排序" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">状态</label>
+                                <div class="layui-input-inline">
+                                     <select name="state" lay-verify="required" lay-search="">
+                                        <option value="">请选择</option>
+                                        <option value="1"{if isset($data.state) and $data.state eq 1} selected{/if}>开启</option>
+                                        <option value="2"{if isset($data.state) and $data.state eq 2} selected{/if}>关闭</option>
+                                    </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">请选择渠道状态</div>
+                            </div>
+                            <div class="layui-form-item" style="margin-top: 40px;text-align: center;">
+                                <input type="hidden" name="id" value="{$data.id ?? ''}" class="layui-input">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="rechargeedit">立即提交</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/resource/layuiadmin/layui/layui.js"></script>
+<script src="/resource/js/manage/init_date.js"></script>
+<script src="/resource/js/manage/bank.js"></script>
+</body>
+</html>

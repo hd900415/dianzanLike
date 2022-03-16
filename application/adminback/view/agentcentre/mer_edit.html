@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<script type="text/javascript" src="/resource/admin/js/agentcentre.js"></script>
+<style type="text/css">
+.form-table th, .form-table td {
+	border: none;
+	height: 60px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+	text-align: right;
+}
+.form-table td input[type='text'], .form-table td input[type='password'], .form-table td input[type='number'], .form-table td textarea, .form-table td select {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table td span {
+	margin-left: 10px;
+	color: red;
+}
+</style>
+<title>编辑商户</title>
+</head>
+<body>
+	<div style="padding:10px">
+		<table width="100%" class="form-table">
+			<thead>
+				<tr align="center">
+					<th colspan="2" style="color:red;">*更改此处将调整整条团队线的费率，请谨慎操作。上调填正数（如：0.1），下调填负数（如：-0.1）</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>支付宝费率</td>
+					<td><input type="text" name="alipay_fee" value=""><span>调整范围：{$selfFee.alipay_fee - $data.alipay_fee} - {$setting.m_alipay_fee_max - $data.alipay_fee}</span></td>
+				</tr>
+				<tr>
+					<td>微信费率</td>
+					<td><input type="text" name="wechat_fee" value=""><span>调整范围：{$selfFee.wechat_fee - $data.wechat_fee} - {$setting.m_wechat_fee_max - $data.wechat_fee}</span></td>
+				</tr>
+				<tr>
+					<td>银行费率</td>
+					<td><input type="text" name="bank_fee" value=""><span>调整范围：{$selfFee.bank_fee - $data.bank_fee} - {$setting.m_bank_fee_max - $data.bank_fee}</span></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="id" value="{$id}">
+					</td>
+					<td><button class="button mer_edit_sub">提交</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layuiAdmin 控制台主页一</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/resource/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resource/css/mylay.css">
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">代理迁移</div>
+                <div class="layui-card-body">
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">被迁移代理</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="bqusername" placeholder="请输入被迁移代理的账号" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux"><span style="color: red;">注意：被迁移代理包括下级，是整条线迁移。</span></div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">迁移至代理</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="qusername" placeholder="请输入迁移后的代理账号" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux"></div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">安全码</label>
+                            <div class="layui-input-inline">
+                                <input type="password" name="safe_code" lay-verify="pass" placeholder="请输入安全码" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux"></div>
+                        </div>
+                        <div class="layui-form-item" style="margin-top: 40px;margin-left: 8em;">
+                            <button class="layui-btn" lay-submit lay-filter="teammovebtn">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-header">迁移记录</div>
+                <div class="layui-card-body">
+                    <table class="layui-table" lay-even="" lay-skin="row">
+                        <!-- <colgroup>
+                            <col width="150">
+                            <col width="200">
+                            <col width="150">
+                            <col>
+                        </colgroup> -->
+                        <thead>
+                            <tr>
+                                <th>操作员</th>
+                                <th>操作内容</th>
+                                <th>操作时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {if $teammoveLog}
+                            {foreach $teammoveLog as $key=>$value}
+                            <tr>
+                                <td>{$value.username}</td>
+                                <td>{$value.log}</td>
+                                <td>{$value.addtime}</td>
+                            </tr>
+                            {/foreach}
+                            {else /}
+                            <tr>
+                                <td colspan="3" style="text-align: center;">暂无数据</td>
+                            </tr>
+                            {/if}
+                        </tbody>
+                    </table>
+                    {$page|raw}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/resource/layuiadmin/layui/layui.js"></script>
+<script src="/resource/js/manage/init_date.js"></script>
+<script src="/resource/js/manage/user.js"></script>
+</body>
+</html>
+

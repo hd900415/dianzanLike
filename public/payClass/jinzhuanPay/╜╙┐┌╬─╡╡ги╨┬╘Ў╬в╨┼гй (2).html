@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>接口文档</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+</style>
+
+<style type="text/css">
+div.prism-show-language {
+	position: relative;
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">支付/代付API接口文档</h1>
+
+<ul class="toc">
+<li>
+<a href="#toc_0">支付/代付API接口文档</a>
+<ul>
+<li>
+<a href="#toc_1">文档说明</a>
+<ul>
+<li>
+<a href="#toc_2">功能描述</a>
+</li>
+<li>
+<a href="#toc_3">阅读对象</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_4">什么是MD5?</a>
+</li>
+<li>
+<a href="#toc_5">加签验签机制</a>
+</li>
+<li>
+<a href="#toc_6">为什么需要加签</a>
+</li>
+<li>
+<a href="#toc_7">签名规则</a>
+</li>
+<li>
+<a href="#toc_8">MD5哪里设置?</a>
+</li>
+<li>
+<a href="#toc_9">HTTP请求类型</a>
+</li>
+<li>
+<a href="#toc_10">业务:支付宝扫码/支付宝唤醒2.0</a>
+<ul>
+<li>
+<a href="#toc_11">请求地址</a>
+</li>
+<li>
+<a href="#toc_12">请求参数</a>
+</li>
+<li>
+<a href="#toc_13">签名示例</a>
+</li>
+<li>
+<a href="#toc_14">请求实例</a>
+</li>
+<li>
+<a href="#toc_15">响应参数</a>
+<ul>
+<li>
+<a href="#toc_16">result示例</a>
+</li>
+<li>
+<a href="#toc_17">注意</a>
+</li>
+<li>
+<a href="#toc_18">特别注意</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_19">业务:微信扫码</a>
+<ul>
+<li>
+<a href="#toc_20">请求地址</a>
+</li>
+<li>
+<a href="#toc_21">请求参数</a>
+</li>
+<li>
+<a href="#toc_22">签名示例</a>
+</li>
+<li>
+<a href="#toc_23">请求实例</a>
+</li>
+<li>
+<a href="#toc_24">响应参数</a>
+<ul>
+<li>
+<a href="#toc_25">result示例</a>
+</li>
+<li>
+<a href="#toc_26">注意</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_27">业务:银联扫码</a>
+<ul>
+<li>
+<a href="#toc_28">请求地址</a>
+</li>
+<li>
+<a href="#toc_29">交互方式</a>
+</li>
+<li>
+<a href="#toc_30">请求参数</a>
+</li>
+<li>
+<a href="#toc_31">签名示例</a>
+</li>
+<li>
+<a href="#toc_32">请求实例</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_33">业务:京东扫码/京东唤醒</a>
+<ul>
+<li>
+<a href="#toc_34">请求地址</a>
+</li>
+<li>
+<a href="#toc_35">请求参数</a>
+</li>
+<li>
+<a href="#toc_36">签名示例</a>
+</li>
+<li>
+<a href="#toc_37">请求实例</a>
+</li>
+<li>
+<a href="#toc_38">响应参数</a>
+<ul>
+<li>
+<a href="#toc_39">result示例</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_40">业务:代付</a>
+<ul>
+<li>
+<a href="#toc_41">请求地址</a>
+</li>
+<li>
+<a href="#toc_42">请求参数</a>
+</li>
+<li>
+<a href="#toc_43">签名示例</a>
+</li>
+<li>
+<a href="#toc_44">请求实例</a>
+</li>
+<li>
+<a href="#toc_45">响应参数</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_46">业务:余额查询</a>
+<ul>
+<li>
+<a href="#toc_47">请求地址</a>
+</li>
+<li>
+<a href="#toc_48">请求参数</a>
+</li>
+<li>
+<a href="#toc_49">请求实例</a>
+</li>
+<li>
+<a href="#toc_50">响应参数</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_51">业务:交易查询</a>
+<ul>
+<li>
+<a href="#toc_52">请求地址</a>
+</li>
+<li>
+<a href="#toc_53">请求参数</a>
+</li>
+<li>
+<a href="#toc_54">响应参数</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_55">异步通知回调接口</a>
+<ul>
+<li>
+<a href="#toc_56">回调请求方式</a>
+</li>
+<li>
+<a href="#toc_57">回调参数获取方式</a>
+</li>
+<li>
+<a href="#toc_58">回调报头</a>
+</li>
+<li>
+<a href="#toc_59">回调返回值</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_60">银行编码</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="toc_1">文档说明</h2>
+
+<h3 id="toc_2">功能描述</h3>
+
+<p>此文档主要包括订单相关的支付、查询接口。</p>
+
+<h3 id="toc_3">阅读对象</h3>
+
+<p>面向具有一定的网站开发能力，了解ASP、PHP、JAVA等开发语言中的一种及SQL数据库语言的网站开发、维护和管理人员。</p>
+
+<h2 id="toc_4">什么是MD5?</h2>
+
+<p>MD5密钥可以是自定义的一串随机字符串，最好是包涵大写字母、小写字母和数字，增加密钥 的复杂度。</p>
+
+<h2 id="toc_5">加签验签机制</h2>
+
+<p>为了保证数据传输过程中的数据的真实性和完整性，我们需要对数据进行数字签名，在接收签 名数据之后进行签名校验。我们系统采用的数字签名方式为MD5。</p>
+
+<h2 id="toc_6">为什么需要加签</h2>
+
+<p>请求加签主要是为了保证请求的合法性和不可抵赖。只有唯一对应的MD5KEY进行加签才能解 签成功，如果解签失败则可判定为非合法来源请求，如果解签成功则认为请求是被认可的，将 被正常处理。所以务必保证MD5的私密性，如果觉得自己的MD5KEY有被泄露的可能，及时联 系管理人员更换MD5KEY。</p>
+
+<h2 id="toc_7">签名规则</h2>
+
+<ul>
+<li>1.值为空的参数不参与签名</li>
+<li>2.sign不参与签名</li>
+<li>3.签名格式:p1=v1&amp;p2=v2&amp;p3=v3&amp;......&amp;[md5key]</li>
+<li>4.排序规则:参数key按照ASCII升序</li>
+<li><font color= red>5.sign统一使用小写字母</font></li>
+<li>6.发送请求的加签,同步响应的验签,异步回调的验签均用此规则</li>
+<li><font color= red>7.同步响应状态为F,无需验签</font></li>
+</ul>
+
+<h2 id="toc_8">MD5哪里设置?</h2>
+
+<p>商户后台-开发工具-开发者平台信息-输入验证码-即可设置MD5</p>
+
+<h2 id="toc_9">HTTP请求类型</h2>
+
+<div><pre><code class="language-none">application/x-www-form-urlencoded;charset=utf-8</code></pre></div>
+
+<h2 id="toc_10">业务:支付宝扫码/支付宝唤醒2.0</h2>
+
+<h3 id="toc_11">请求地址</h3>
+
+<div><pre><code class="language-none">POST  /payCenter/aliPay2</code></pre></div>
+
+<h3 id="toc_12">请求参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否必填</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: left">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">partner</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">商户合作号，由平台注册提供</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">金额(单位:元,支持两位小数)</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">时间戳,精确到秒</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">否</td>
+<td style="text-align: left">签名字符串</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_no</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">pay_type</td>
+<td style="text-align: center">2</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">唤醒参数:h5</br>扫码参数:sm</br>不传默认为扫码</td>
+</tr>
+<tr>
+<td style="text-align: left">notify_url</td>
+<td style="text-align: center">64</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">异步通知地址</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_13">签名示例</h3>
+
+<div><pre><code class="language-none">amount=1&amp;notify_url=http://baidu.com&amp;partner=1003286585&amp;pay_type=h5&amp;request_time=123&amp;trade_no=88ef37d2-279b-43cd-b582-617abb6&amp;md5key</code></pre></div>
+
+<h3 id="toc_14">请求实例</h3>
+
+<div><pre><code class="language-none">amount=1&amp;request_time=123&amp;partner=1003286585&amp;sign=4024d9b704f09122d566ee3e71aaf2c9&amp;trade_no=ff4cc6e1-bdc8-4b4f-806f-23d7c1d&amp;pay_type=h5&amp;notify_url=http://baidu.com</code></pre></div>
+
+<h3 id="toc_15">响应参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: center">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">is_success</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">成功标志:T/F</td>
+</tr>
+<tr>
+<td style="text-align: left">charset</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">编码格式:UTF-8</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_code</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误码</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_msg</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误值说明</td>
+</tr>
+<tr>
+<td style="text-align: left">resp_time</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">响应链接</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">签名字符串</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_16">result示例</h4>
+
+<div><pre><code class="language-none">&quot;http://www.xxxx.com/xxx/zzz/yyy?token=didnfffiiasdaasdasd&quot;
+
+或者
+
+&lt;form name=&quot;xxx&quot; method=&quot;post&quot; action=&quot;xxx&quot;&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; 
+&lt;input  name=&quot;xxxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input type=&quot;submit&quot; /&gt;
+&lt;/form&gt;</code></pre></div>
+
+<h4 id="toc_17">注意</h4>
+
+<p>扫码的URL放入电脑端的浏览器,为展示页面,页面包含金额及二维码,用户可打开支付宝进行扫描.<br>
+唤醒的URL放入手机端APP或者浏览器中,为展示页面,用户点击页面中的按钮即可唤醒支付宝.</p>
+
+<h4 id="toc_18">特别注意</h4>
+
+<p>若返回的内容是FROM表单则,将该结果写入用户的浏览器,让用户自动进行跳转</p>
+
+<h2 id="toc_19">业务:微信扫码</h2>
+
+<h3 id="toc_20">请求地址</h3>
+
+<div><pre><code class="language-none">POST  /payCenter/wxPay</code></pre></div>
+
+<h3 id="toc_21">请求参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否必填</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: left">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">partner</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">商户合作号，由平台注册提供</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">金额(单位:元,支持两位小数)</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">时间戳,精确到秒</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">否</td>
+<td style="text-align: left">签名字符串</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_no</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">pay_type</td>
+<td style="text-align: center">2</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">唤醒参数:h5</br>扫码参数:sm</br>不传默认为扫码</td>
+</tr>
+<tr>
+<td style="text-align: left">notify_url</td>
+<td style="text-align: center">64</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">异步通知地址</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_22">签名示例</h3>
+
+<div><pre><code class="language-none">amount=1&amp;notify_url=http://baidu.com&amp;partner=1003286585&amp;pay_type=h5&amp;request_time=123&amp;trade_no=88ef37d2-279b-43cd-b582-617abb6&amp;md5key</code></pre></div>
+
+<h3 id="toc_23">请求实例</h3>
+
+<div><pre><code class="language-none">amount=1&amp;request_time=123&amp;partner=1003286585&amp;sign=4024d9b704f09122d566ee3e71aaf2c9&amp;trade_no=ff4cc6e1-bdc8-4b4f-806f-23d7c1d&amp;pay_type=h5&amp;notify_url=http://baidu.com</code></pre></div>
+
+<h3 id="toc_24">响应参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: center">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">is_success</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">成功标志:T/F</td>
+</tr>
+<tr>
+<td style="text-align: left">charset</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">编码格式:UTF-8</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_code</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误码</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_msg</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误值说明</td>
+</tr>
+<tr>
+<td style="text-align: left">resp_time</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">响应链接</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">签名字符串</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_25">result示例</h4>
+
+<div><pre><code class="language-none">&quot;http://www.xxxx.com/xxx/zzz/yyy?token=didnfffiiasdaasdasd&quot;
+
+或者
+
+&lt;form name=&quot;xxx&quot; method=&quot;post&quot; action=&quot;xxx&quot;&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; 
+&lt;input  name=&quot;xxxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yy&quot; /&gt; &lt;br/&gt;
+&lt;input  name=&quot;xxx&quot; value=&quot;yyy&quot; /&gt; &lt;br/&gt;
+&lt;input type=&quot;submit&quot; /&gt;
+&lt;/form&gt;</code></pre></div>
+
+<h4 id="toc_26">注意</h4>
+
+<p>扫码的URL放入电脑端的浏览器,为展示页面,页面包含金额及二维码,用户可打开微信进行扫描.<br>
+唤醒的URL放入手机端APP或者浏览器中,为展示页面,用户保存截图,打开微信扫描截图即可.</p>
+
+<h2 id="toc_27">业务:银联扫码</h2>
+
+<h3 id="toc_28">请求地址</h3>
+
+<div><pre><code class="language-none">POST  /payCenter/unionqrpay</code></pre></div>
+
+<h3 id="toc_29">交互方式</h3>
+
+<ul>
+<li>  页面跳转交互</li>
+<li>  表单form方式POST提交</li>
+</ul>
+
+<h3 id="toc_30">请求参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否必填</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: left">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">partner</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">商户合作号，由平台注册提供</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">金额(单位:元,支持两位小数)</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">时间戳,精确到秒</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">否</td>
+<td style="text-align: left">签名字符串</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_no</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">callback_url</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">跳转地址</td>
+</tr>
+<tr>
+<td style="text-align: left">notify_url</td>
+<td style="text-align: center">64</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">异步通知地址</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_31">签名示例</h3>
+
+<div><pre><code class="language-none">amount=1&amp;notify_url=http://baidu.com&amp;partner=1003286585&amp;request_time=1545819594&amp;trade_no=88ef37d2-279b-43cd-b582-617abb6&amp;md5key</code></pre></div>
+
+<h3 id="toc_32">请求实例</h3>
+
+<div><pre><code class="language-none">&lt;form action=&quot;http://localhost:8480/payCenter/unionqrpay&quot; method=&quot;post&quot;&gt;
+  &lt;input name=&quot;partner&quot; value=&quot;1003286585&quot; /&gt;&lt;br/&gt;
+  &lt;input name=&quot;trade_no&quot; value=&quot;&quot; /&gt;&lt;br /&gt;
+  &lt;input name=&quot;amount&quot; value=&quot;1&quot; /&gt; &lt;br /&gt;
+  &lt;input name=&quot;notify_url&quot; value=&quot;http://baidu.com&quot; /&gt; &lt;br/&gt;
+  &lt;input name=&quot;callback_url&quot; value=&quot;http://baidu.com&quot; /&gt; &lt;br/&gt;
+  &lt;input name=&quot;request_time&quot; value=&quot;1545819594&quot; /&gt;&lt;br/&gt;
+  &lt;input name=&quot;sign&quot; value=&quot;&quot; /&gt;&lt;br/&gt;
+&lt;/form&gt;</code></pre></div>
+
+<h2 id="toc_33">业务:京东扫码/京东唤醒</h2>
+
+<h3 id="toc_34">请求地址</h3>
+
+<div><pre><code class="language-none">POST  /payCenter/jdPay</code></pre></div>
+
+<h3 id="toc_35">请求参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否必填</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: left">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">partner</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">商户合作号，由平台注册提供</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">金额(单位:元,支持两位小数)</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">时间戳,精确到秒</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">否</td>
+<td style="text-align: left">签名字符串</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_no</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">pay_type</td>
+<td style="text-align: center">2</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">唤醒参数:jd_h5</br>扫码参数:jd_sm</br>不传默认为扫码</td>
+</tr>
+<tr>
+<td style="text-align: left">notify_url</td>
+<td style="text-align: center">64</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">异步通知地址</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_36">签名示例</h3>
+
+<div><pre><code class="language-none">amount=1&amp;notify_url=http://baidu.com&amp;partner=1003286585&amp;pay_type= jd_h5&amp;request_time=123&amp;trade_no=88ef37d2-279b-43cd-b582-617abb6&amp;md5key</code></pre></div>
+
+<h3 id="toc_37">请求实例</h3>
+
+<div><pre><code class="language-none">amount=1&amp;request_time=123&amp;partner=1003286585&amp;sign=4024d9b704f09122d566ee3e71aaf2c9&amp;trade_no=ff4cc6e1-bdc8-4b4f-806f-23d7c1d&amp;pay_type=jd_h5&amp;notify_url=http://baidu.com</code></pre></div>
+
+<h3 id="toc_38">响应参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: center">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">is_success</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">成功标志:T/F</td>
+</tr>
+<tr>
+<td style="text-align: left">charset</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">编码格式:UTF-8</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_code</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误码</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_msg</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误值说明</td>
+</tr>
+<tr>
+<td style="text-align: left">resp_time</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">响应链接</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">签名字符串</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_39">result示例</h4>
+
+<div><pre><code class="language-none">&quot;http://www.xxxx.com/xxx/zzz/yyy?token=didnfffiiasdaasdasd&quot;</code></pre></div>
+
+<h2 id="toc_40">业务:代付</h2>
+
+<h3 id="toc_41">请求地址</h3>
+
+<div><pre><code class="language-none">POST /payCenter/agentPay</code></pre></div>
+
+<h3 id="toc_42">请求参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否必填</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: left">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">partner</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">商户合作号，由平台注册提供</td>
+</tr>
+<tr>
+<td style="text-align: left">notify_url</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">回调地址</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">时间戳,精确到秒</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_no</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">金额(单位:元,支持两位小数)</td>
+</tr>
+<tr>
+<td style="text-align: left">bank_sn</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">银行编码</td>
+</tr>
+<tr>
+<td style="text-align: left">bank_site_name</td>
+<td style="text-align: center">1024</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">银行所在地</td>
+</tr>
+<tr>
+<td style="text-align: left">bank_account_name</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">账户姓名</td>
+</tr>
+<tr>
+<td style="text-align: left">bank_province</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">省</td>
+</tr>
+<tr>
+<td style="text-align: left">bank_city</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">城市</td>
+</tr>
+<tr>
+<td style="text-align: left">bank_account_no</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">账户账号</td>
+</tr>
+<tr>
+<td style="text-align: left">remark</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">bus_type</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">交易类型:固定值0</td>
+</tr>
+<tr>
+<td style="text-align: left">bank_mobile_no</td>
+<td style="text-align: center">13</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">手机号</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">64</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">否</td>
+<td style="text-align: left">签名字符串</td>
+</tr>
+</tbody>
+</table>
+
+<p><font color= red>提示:账户姓名/账户账号/银行编码必须正确填写,其他必填字段可视情况自定义内容</font></p>
+
+<h3 id="toc_43">签名示例</h3>
+
+<div><pre><code class="language-none">amount=0.01&amp;bank_account_name=农业银行&amp;bank_account_no=4115xx801157031&amp;bank_card_owner=XX&amp;bank_city=杭州市&amp;bank_mobile_no=1300xx01&amp;bank_province=浙江省&amp;bank_site_name=nihao&amp;bank_sn=ABC&amp;notify_url=http://baidu.com&amp;partner=1003286585&amp;request_time=123&amp;trade_no=846b3aa9-eccc-4d7b-a8f5-1590a460cb05</code></pre></div>
+
+<h3 id="toc_44">请求实例</h3>
+
+<div><pre><code class="language-none">amount=0.01&amp;bank_account_no=xxx&amp;sign=07ea7e2cc0a02d9d15ba053fb6877a86&amp;bank_card_owner=xxx&amp;bank_province=浙江省&amp;notify_url=http://baidu.com&amp;bank_site_name=nihao&amp;bank_account_name=农业银行&amp;request_time=123&amp;partner=1003286585&amp;bank_mobile_no=13003696101&amp;bank_sn=ABC&amp;trade_no=846b3aa9-eccc-4d7b-a8f5-1590a460cb05&amp;bank_city=杭州市</code></pre></div>
+
+<h3 id="toc_45">响应参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: center">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">is_success</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">成功标志:T/F</td>
+</tr>
+<tr>
+<td style="text-align: left">charset</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">编码格式:UTF-8</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_code</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误码</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_msg</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误值说明</td>
+</tr>
+<tr>
+<td style="text-align: left">resp_time</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">时间</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_id</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">待验签字符串</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_46">业务:余额查询</h2>
+
+<h3 id="toc_47">请求地址</h3>
+
+<div><pre><code class="language-none">POST /payCenter/account </code></pre></div>
+
+<h3 id="toc_48">请求参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否必填</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: left">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">partner</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">商户合作号，由平台注册提供</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">时间戳,精确到秒</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">64</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">否</td>
+<td style="text-align: left">签名字符串</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_49">请求实例</h3>
+
+<div><pre><code class="language-none">request_time=11111&amp;partner=1003286585&amp;sign=b53f74c26db2bee5b22b48d27e9bf5fc</code></pre></div>
+
+<h3 id="toc_50">响应参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: center">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">is_success</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">成功标志:T/F</td>
+</tr>
+<tr>
+<td style="text-align: left">charset</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">编码格式:UTF-8</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_code</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误码</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_msg</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误值说明</td>
+</tr>
+<tr>
+<td style="text-align: left">resp_time</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">时间</td>
+</tr>
+<tr>
+<td style="text-align: left">account</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">账号余额</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">签名字符串</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_51">业务:交易查询</h2>
+
+<h3 id="toc_52">请求地址</h3>
+
+<div><pre><code class="language-none">POST /payCenter/orderQuery</code></pre></div>
+
+<h3 id="toc_53">请求参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否必填</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: left">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">partner</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">商户合作号，由平台注册提供</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">时间戳,精确到秒</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">64</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">否</td>
+<td style="text-align: left">签名字符串</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_id</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">系统订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">out_trade_no</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">是</td>
+<td style="text-align: left">外部订单号</td>
+</tr>
+</tbody>
+</table>
+
+<p>注: trade_id与out_trade_no不可同时为空</p>
+
+<h3 id="toc_54">响应参数</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: center">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">is_success</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">成功标志:T/F</td>
+</tr>
+<tr>
+<td style="text-align: left">charset</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">编码格式:UTF-8</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_code</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误码</td>
+</tr>
+<tr>
+<td style="text-align: left">fail_msg</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">错误值说明</td>
+</tr>
+<tr>
+<td style="text-align: left">resp_time</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">验名字符串</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_id</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">系统订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">out_trade_no</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">外部订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">amount_str</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">金额(单位:元,支持两位小数)</td>
+</tr>
+<tr>
+<td style="text-align: left">amount_fee</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">手续费</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">状态:0处理中,1完成,2失败</td>
+</tr>
+<tr>
+<td style="text-align: left">for_trade_id</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">原始订单号(针对退款)</td>
+</tr>
+<tr>
+<td style="text-align: left">business_type</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">交易类型</td>
+</tr>
+<tr>
+<td style="text-align: left">remark</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">备注</td>
+</tr>
+<tr>
+<td style="text-align: left">create_time</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">创建时间:yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td style="text-align: left">modified_time</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">修改时间:yyyy-MM-dd HH:mm:ss</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_55">异步通知回调接口</h2>
+
+<h3 id="toc_56">回调请求方式</h3>
+
+<p>POST </p>
+
+<h3 id="toc_57">回调参数获取方式</h3>
+
+<p>直接从request中获取对应字段即可</p>
+
+<h3 id="toc_58">回调报头</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">字段</th>
+<th style="text-align: center">长度</th>
+<th style="text-align: center">是否加入验签</th>
+<th style="text-align: center">注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">input_charset</td>
+<td style="text-align: center">10</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">编码格式:UTF-8</td>
+</tr>
+<tr>
+<td style="text-align: left">sign_type</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">签名方式:MD5</td>
+</tr>
+<tr>
+<td style="text-align: left">sign</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">否</td>
+<td style="text-align: center">MD5加密串</td>
+</tr>
+<tr>
+<td style="text-align: left">request_time</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td style="text-align: left">trade_id</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">系统订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">out_trade_no</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">外部订单号</td>
+</tr>
+<tr>
+<td style="text-align: left">amount_str</td>
+<td style="text-align: center">9</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">金额(单位:元,支持两位小数)</td>
+</tr>
+<tr>
+<td style="text-align: left">amount_fee</td>
+<td style="text-align: center">9</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">手续费</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: center">2</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">状态:0处理中,1完成,2失败</td>
+</tr>
+<tr>
+<td style="text-align: left">for_trade_id</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">原始订单号(针对退款)</td>
+</tr>
+<tr>
+<td style="text-align: left">business_type</td>
+<td style="text-align: center">3</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">交易类型</td>
+</tr>
+<tr>
+<td style="text-align: left">remark</td>
+<td style="text-align: center">256</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">备注</td>
+</tr>
+<tr>
+<td style="text-align: left">create_time</td>
+<td style="text-align: center">11</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td style="text-align: left">modified_time</td>
+<td style="text-align: center">11</td>
+<td style="text-align: center">是</td>
+<td style="text-align: center">yyyy-MM-dd HH:mm:ss</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_59">回调返回值</h3>
+
+<div><pre><code class="language-none">success</code></pre></div>
+
+<p>注:如未获取正确返回值,则每隔5分钟进行1次回调,至多补发2次</p>
+
+<h2 id="toc_60">银行编码</h2>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">编码</th>
+<th style="text-align: center">银行</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">ICBC</td>
+<td style="text-align: center">中国工商银行</td>
+</tr>
+<tr>
+<td style="text-align: left">ABC</td>
+<td style="text-align: center">中国农业银行</td>
+</tr>
+<tr>
+<td style="text-align: left">BOC</td>
+<td style="text-align: center">中国银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CCB</td>
+<td style="text-align: center">中国建设银行</td>
+</tr>
+<tr>
+<td style="text-align: left">COMM</td>
+<td style="text-align: center">交通银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CITIC</td>
+<td style="text-align: center">中信银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CEB</td>
+<td style="text-align: center">中国光大银行</td>
+</tr>
+<tr>
+<td style="text-align: left">HXB</td>
+<td style="text-align: center">华夏银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CMBC</td>
+<td style="text-align: center">中国民生银行</td>
+</tr>
+<tr>
+<td style="text-align: left">GDB</td>
+<td style="text-align: center">广发银行</td>
+</tr>
+<tr>
+<td style="text-align: left">SZPAB</td>
+<td style="text-align: center">平安银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CMB</td>
+<td style="text-align: center">招商银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CIB</td>
+<td style="text-align: center">兴业银行</td>
+</tr>
+<tr>
+<td style="text-align: left">BCCB</td>
+<td style="text-align: center">北京银行</td>
+</tr>
+<tr>
+<td style="text-align: left">SPDB</td>
+<td style="text-align: center">上海浦东发展银行</td>
+</tr>
+<tr>
+<td style="text-align: left">HKBCHINA</td>
+<td style="text-align: center">汉口银行</td>
+</tr>
+<tr>
+<td style="text-align: left">HCCB</td>
+<td style="text-align: center">杭州银行</td>
+</tr>
+<tr>
+<td style="text-align: left">SXJS</td>
+<td style="text-align: center">晋城银行</td>
+</tr>
+<tr>
+<td style="text-align: left">NJCB</td>
+<td style="text-align: center">南京银行</td>
+</tr>
+<tr>
+<td style="text-align: left">NBCB</td>
+<td style="text-align: center">宁波银行</td>
+</tr>
+<tr>
+<td style="text-align: left">BOS</td>
+<td style="text-align: center">上海银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CSCB</td>
+<td style="text-align: center">长沙银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CZCB</td>
+<td style="text-align: center">浙江稠州商业银行</td>
+</tr>
+<tr>
+<td style="text-align: left">SDBC</td>
+<td style="text-align: center">顺德农村商业银行</td>
+</tr>
+<tr>
+<td style="text-align: left">EGBANK</td>
+<td style="text-align: center">恒丰银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CZB</td>
+<td style="text-align: center">浙商银行</td>
+</tr>
+<tr>
+<td style="text-align: left">CBHB</td>
+<td style="text-align: center">渤海银行</td>
+</tr>
+<tr>
+<td style="text-align: left">HSBANK</td>
+<td style="text-align: center">徽商银行</td>
+</tr>
+<tr>
+<td style="text-align: left">SHRCB</td>
+<td style="text-align: center">上海农商银行</td>
+</tr>
+<tr>
+<td style="text-align: left">BJRCB</td>
+<td style="text-align: center">北京农村商业行</td>
+</tr>
+<tr>
+<td style="text-align: left">SNXS</td>
+<td style="text-align: center">深圳农商行</td>
+</tr>
+<tr>
+<td style="text-align: left">PSBC</td>
+<td style="text-align: center">中国邮政储蓄银行</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e={html:"HTML",xml:"XML",svg:"SVG",mathml:"MathML",css:"CSS",clike:"C-like",javascript:"JavaScript",abap:"ABAP",actionscript:"ActionScript",apacheconf:"Apache Configuration",apl:"APL",applescript:"AppleScript",asciidoc:"AsciiDoc",aspnet:"ASP.NET (C#)",autoit:"AutoIt",autohotkey:"AutoHotkey",basic:"BASIC",csharp:"C#",cpp:"C++",coffeescript:"CoffeeScript","css-extras":"CSS Extras",fsharp:"F#",glsl:"GLSL",http:"HTTP",inform7:"Inform 7",json:"JSON",latex:"LaTeX",lolcode:"LOLCODE",matlab:"MATLAB",mel:"MEL",nasm:"NASM",nginx:"nginx",nsis:"NSIS",objectivec:"Objective-C",ocaml:"OCaml",parigp:"PARI/GP",php:"PHP","php-extras":"PHP Extras",powershell:"PowerShell",jsx:"React JSX",rest:"reST (reStructuredText)",sas:"SAS",sass:"Sass (Sass)",scss:"Sass (Scss)",sql:"SQL",typescript:"TypeScript",vhdl:"VHDL",vim:"vim",wiki:"Wiki markup",yaml:"YAML"};Prism.hooks.add("before-highlight",function(s){var a=s.element.parentNode;if(a&&/pre/i.test(a.nodeName)){var t,i,r=a.getAttribute("data-language")||e[s.language]||s.language.substring(0,1).toUpperCase()+s.language.substring(1),l=a.previousSibling;l&&/\s*\bprism-show-language\b\s*/.test(l.className)&&l.firstChild&&/\s*\bprism-show-language-label\b\s*/.test(l.firstChild.className)?i=l.firstChild:(t=document.createElement("div"),i=document.createElement("div"),i.className="prism-show-language-label",t.className="prism-show-language",t.appendChild(i),a.parentNode.insertBefore(t,a)),i.innerHTML=r}})}}();
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>order.createOrder - 在线接口文档</title>
+<link rel="stylesheet" href="../css/semantic.min.css">
+<link rel="stylesheet" href="../css/table.min.css">
+<link rel="stylesheet" href="../css/container.min.css">
+<link rel="stylesheet" href="../css/message.min.css">
+<link rel="stylesheet" href="../css/label.min.css">
+</head>
+
+<body>
+<br />
+<div class="ui text container" style="max-width: none !important;">
+  <div class="ui floating message">
+    <h2 class="ui header">接口：order.createOrder</h2>
+    <br/>
+    <span class="ui teal tag label"> 创建</span>
+    <div class="ui raised segment"> <span class="ui red ribbon label">接口说明</span>
+      <div class="ui message">
+        <p> 创建</p>
+      </div>
+    </div>
+    <h3>接口参数</h3>
+    <table class="ui red celled striped table" >
+      <thead>
+        <tr>
+          <th>参数名字</th>
+          <th>类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>其他</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <h3>推送结果</h3>
+    <table class="ui green celled striped table" >
+      <thead>
+        <tr>
+          <th width="91">返回字段</th>
+          <th width="182">类型</th>
+          <th width="1505">说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data[].orderid</td>
+          <td>字符串</td>
+          <td>订单ID</td>
+        </tr>
+        <tr>
+          <td>data[].oamount</td>
+          <td>字符串</td>
+          <td>订单金额</td>
+        </tr>
+        <tr>
+          <td>data[].payway</td>
+          <td>字符串</td>
+          <td>是否方式(AliPay支付宝扫码支付)(WechatPay微信扫码支付)</td>
+        </tr>
+        <tr>
+          <td>data.list[n]</td>
+          <td>array</td>
+          <td> orderid     订单ID<br>
+            oamount    订单金额<br>
+            payway      是否方式(AliPay支付宝扫码支付)(WechatPay微信扫码支付)<br></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

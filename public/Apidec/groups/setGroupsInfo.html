@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Groups.setGroupsInfo - 在线接口文档</title>
+<link rel="stylesheet" href="../css/semantic.min.css">
+<link rel="stylesheet" href="../css/table.min.css">
+<link rel="stylesheet" href="../css/container.min.css">
+<link rel="stylesheet" href="../css/message.min.css">
+<link rel="stylesheet" href="../css/label.min.css">
+</head>
+
+<body>
+<br />
+<div class="ui text container" style="max-width: none !important;">
+  <div class="ui floating message">
+    <h2 class="ui header">接口：Groups.setGroupsInfo</h2>
+    <br/>
+    <span class="ui teal tag label"> 设置群消息</span>
+    <div class="ui raised segment"> <span class="ui red ribbon label">接口说明</span>
+      <div class="ui message">
+        <p> 设置群消息</p>
+      </div>
+    </div>
+    <h3>接口参数</h3>
+    <table class="ui red celled striped table" >
+      <thead>
+        <tr>
+          <th>参数名字</th>
+          <th>类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>其他</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：1</td>
+          <td>时间标签</td>
+        </tr>
+        <tr>
+          <td>gid</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：1</td>
+          <td>群id</td>
+        </tr>
+        <tr>
+          <td>uid</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td></td>
+          <td>用户ID</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6</td>
+          <td>群密码</td>
+        </tr>
+        <!--<tr>
+          <td>gnid</td>
+          <td>字符串</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td> 最小：1</td>
+          <td>群成员ID 1,2,3,4<br>
+            设置成群管理 user_type=4  (群主,管理)<br>
+            取消群管理  user_type=5  (群主,管理)<br>
+            移除该群    user_type=6  (群主,管理)<br>
+            邀请进群    user_type=1  (群主,管理,成员)</td>
+        </tr>-->
+        <tr>
+          <td>group_name</td>
+          <td>字符串</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>群名称(群主,管理 修改)</td>
+        </tr>
+        <tr>
+          <td>is_f_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>管理加群需要验证(群主,管理 显示/修改)</td>
+        </tr>
+        <tr>
+          <td>is_h_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>管理允许发送名片(群主,管理 显示/修改)</td>
+        </tr>
+        <tr>
+          <td>is_q_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>管理允许通过群号找到群(群主,管理 显示/修改)</td>
+        </tr>
+        <tr>
+          <td>is_g_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>管理允许成员邀请好友加群(群主,管理 显示/修改)</td>
+        </tr>
+        <tr>
+          <td>is_s_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>管理允许查看成员信息(群主,管理 显示/修改)</td>
+        </tr>
+        <tr>
+          <td>is_u_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>管理是否通过共享连接(群主,管理 显示/修改)</td>
+        </tr>
+        <tr>
+          <td>notice</td>
+          <td>字符串</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>公告(群主,管理 修改)</td>
+        </tr>
+        <tr>
+          <td>introduce</td>
+          <td>字符串</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>简介(群主,管理 修改)</td>
+        </tr>
+        <tr>
+          <td>nick_name</td>
+          <td>字符串</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>所在群的昵称</td>
+        </tr>
+        <tr>
+          <td>is_v_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>消息勿扰</td>
+        </tr>
+        <tr>
+          <td>is_z_d</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>消息置顶</td>
+        </tr>        
+        <tr>
+          <td>user_type</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>成员类型：群主1，成员2，申请3,群管理4</td>
+        </tr>
+        <tr>
+          <td>setGroupAdmin</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>设置群管理员</td>
+        </tr>
+        <tr>
+          <td>remove_groups</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>移出群成员</td>
+        </tr>
+        <tr>
+          <td>clear_groups_record</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>清除群聊天记录</td>
+        </tr>
+        <tr>
+          <td>disbanded_groups</td>
+          <td>整数</td>
+          <td><font color="red">可选</font></td>
+          <td></td>
+          <td></td>
+          <td>群解散</td>
+        </tr>
+        <tr>
+          <td>setGroupPassword</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td></td>
+          <td>设置群密码</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>返回结果</h3>
+    <table class="ui green celled striped table" >
+      <thead>
+        <tr>
+          <th width="91">返回字段</th>
+          <th width="182">类型</th>
+          <th width="1505">说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data.code</td>
+          <td>整型</td>
+          <td>操作码，<br/>
+            code = 0 <br/>
+            code = 1 </td>
+        </tr>
+        <tr>
+          <td>data.code_dec</td>
+          <td>字符串</td>
+          <td>返回代码描述</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

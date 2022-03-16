@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>接口列表</title>
+<link rel="stylesheet" href="css/semantic.min.css">
+<link rel="stylesheet" href="css/table.min.css">
+<link rel="stylesheet" href="css/container.min.css">
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+</head>
+<script type="text/javascript">
+// JavaScript Document
+$(document).ready(function(){	//登录接口
+	//
+	$("body").on("click","#login",function(){
+		$.ajax({
+			url:"/api/user/login",
+			data:{
+				"username":'15207738820',
+				"password":'admin88',
+			},
+			type:"POST",
+			dataType:"json",
+			success:function(msg){
+				alert(msg);
+			}
+		});		
+	})
+	$("body").on("click","#sendSMSCode",function(){
+		$.ajax({
+			url:"/api/Sms/sendSMSCode",
+			data:{
+				"phone":15907738159,
+			},
+			type:"POST",
+			dataType:"json",
+			success:function(msg){
+				alert(msg);
+			}
+		});		
+	})
+	$("body").on("click","#Register",function(){
+		$.ajax({
+			url:"/api/user/Register",
+			data:{
+				"username":'15907738159',
+				"password":'123456',
+				"idcode":123456,
+				"code":123456,
+			},
+			type:"POST",
+			dataType:"json",
+			success:function(msg){
+				alert(msg);
+			}
+		});		
+	})
+	$("body").on("click","#getuserinfo",function(){
+		$.ajax({
+			url:"/api/user/getuserinfo",
+			data:{
+				"token":'cf99SJumqBnypcna9Lf0NUM/FaTWkM5x9iiPQvLPmk/1CTP7wIRRYP72',
+			},
+			type:"POST",
+			dataType:"json",
+			success:function(msg){
+				alert(msg);
+			}
+		});		
+	})
+	$("body").on("click","#affirmOrder",function(){
+		$.ajax({
+			url:"/api/order/affirmOrder",
+			data:{
+				"id":1,
+				"token":'D201910231215293842877883',
+				"orderid":'D201910231215293842877883',
+				'price':200,
+			},
+			type:"POST",
+			dataType:"json",
+			success:function(msg){
+				alert(msg);
+			}
+		});		
+	})
+});	
+
+
+</script>
+<body>
+<br />
+<div class="ui text container" style="max-width: none !important;">
+  <div class="ui floating message">
+    <h1 class="ui header">接口列表</h1>
+    <table class="ui green celled striped table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>接口服务</th>
+          <th>接口名称</th>
+          <th>更多说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>新接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="Account/BackData.html" target="_blank">Common.BackData</a></td>
+          <td>公共信息</td>
+          <td>公共信息</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="Account/getProjectlist.html" target="_blank">Common.getProjectlist</a></td>
+          <td>获取项目记录</td>
+          <td>获取项目记录</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="Account/getProjectinfo.html" target="_blank">Common.getProjectinfo</a></td>
+          <td>获取项目详细</td>
+          <td>获取项目详细</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="Account/createOrder.html" target="_blank">Order.createOrder</a></td>
+          <td>投资</td>
+          <td>投资</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><a href="Account/Orderlist.html" target="_blank">Order.Orderlist</a></td>
+          <td>投资记录</td>
+          <td>投资记录</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><a href="Account/orderRecordList.html" target="_blank">Order.orderRecordList</a></td>
+          <td>付息还本记录</td>
+          <td>付息还本记录</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><a href="Account/hetong.html" target="_blank">Order.hetong</a></td>
+          <td>项目合同</td>
+          <td>项目合同</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><a href="#" target="_blank">Order.repayMent</a></td>
+          <td>付息还本(整点自动采集)</td>
+          <td>付息还本(整点自动采集)</td>
+        </tr>
+        <tr>
+          <td>Account接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="Account/addBankCard.html" target="_blank">Account.addBankCard</a></td>
+          <td>添加银行卡</td>
+          <td>添加银行卡</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="Account/getBankCardList.html" target="_blank">Account.getBankCardList</a></td>
+          <td>获取银行卡列表</td>
+          <td>获取银行卡列表</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="Account/getBankCardInfo.html" target="_blank">Account.getBankCardInfo</a></td>
+          <td>获取银行卡信息</td>
+          <td>获取银行卡信息</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="Account/changeBankCardInfo.html" target="_blank">Account.changeBankCardInfo</a></td>
+          <td>修改银行卡信息</td>
+          <td>修改银行卡信息</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><a href="Account/realname.html" target="_blank">Account.realname</a></td>
+          <td>实名认证</td>
+          <td>实名认证查询和认证</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><a href="Account/setDrawPW.html" target="_blank">Account.setDrawPW</a></td>
+          <td>设置支付密码</td>
+          <td>设置支付密码</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><a href="Account/changeDrawPW.html" target="_blank">Account.changeDrawPW</a></td>
+          <td>更改支付密码</td>
+          <td>更改支付密码</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><a href="Account/changePassword.html" target="_blank">Account.changePassword</a></td>
+          <td>更改登录密码</td>
+          <td>更改登录密码</td>
+        </tr>
+        
+        <tr>
+          <td>Activity接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="Activity/getActivityList.html" target="_blank">Activity.getActivityList</a></td>
+          <td>获取活动列表</td>
+          <td>获取活动列表</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="Activity/getUserActivityList.html" target="_blank">Activity.getUserActivityList</a></td>
+          <td>获取用户活动记录列表</td>
+          <td>获取用户活动记录列表</td>
+        </tr>
+        
+        <tr>
+          <td>Qrcode接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="Qrcode/addQrcode.html" target="_blank">Qrcode.addQrcode</a></td>
+          <td>添加支付宝账户</td>
+          <td>添加支付宝账户</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="Qrcode/getQrcodeList.html" target="_blank">Qrcode.getQrcodeList</a></td>
+          <td>获取支付宝账户列表</td>
+          <td>获取支付宝账户列表</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="Qrcode/getQrcodeInfo.html" target="_blank">Qrcode.getQrcodeInfo</a></td>
+          <td>获取支付宝账户详细信息</td>
+          <td>获取支付宝账户详细信息</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="Qrcode/changeQrcodeInfo.html" target="_blank">Qrcode.changeQrcodeInfo</a></td>
+          <td>修改支付宝账户信息</td>
+          <td>修改支付宝账户信息</td>
+        </tr>
+        
+        <tr>
+          <td>pay接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="order/createOrder.html" target="_blank">pay.order.createOrder</a></td>
+          <td>创建订单接口</td>
+          <td>创建订单接口</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="order/receiptOrder.html" target="_blank">api.order.receiptOrder</a></td>
+          <td>抢单</td>
+          <td>接收订单</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="order/affirmOrder.html" target="_blank">api.order.affirmOrder</a></td>
+          <td>确认订单</td>
+          <td>确认订单</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="order/orderList.html" target="_blank">api.order.orderList</a></td>
+          <td>订单列表</td>
+          <td>订单列表</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><a href="order/orderDetail.html" target="_blank">api.order.orderDetail</a></td>
+          <td>订单详细</td>
+          <td>订单详细</td>
+        </tr>
+        
+        <tr>
+          <td>Recharge接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="Recharge/newRechargeOrder.html" target="_blank">Recharge.newRechargeOrder</a></td>
+          <td><a href="#" id="newRechargeOrder">新增充值订单信息</a></td>
+          <td>新增充值订单信息</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="Recharge/getRechargeOrderList.html" target="_blank">Recharge.getRechargeOrderList</a></td>
+          <td><a href="#" id="getRechargeOrderList">获取充值订单列表</a></td>
+          <td>获取充值订单列表</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="Recharge/getRechargeOrderInfo.html" target="_blank">Recharge.getRechargeOrderInfo</a></td>
+          <td><a href="#" id="getRechargeOrderInfo">获取充值订单信息</a></td>
+          <td>获取充值订单信息</td>
+        </tr>
+        
+        <tr>
+          <td>User接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td><a href="Sms/sendSMSCode.html" target="_blank">Sms.sendSMSCode</a></td>
+          <td><a href="#" id="sendSMSCode">发送短信</a></td>
+          <td>发送短信</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="user/Register.html" target="_blank">User.Register</a></td>
+          <td><a href="#" id="Register">用户注册</a></td>
+          <td>用户使用用户注册</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="user/login.html" target="_blank">User.Login</a></td>
+          <td><a href="#" id="login">用户登录接口</a></td>
+          <td>用户使用该接口登录平台</td>
+        </tr>
+		<tr>
+          <td>3</td>
+          <td><a href="user/checkSlogin.html" target="_blank">User.checkSlogin</a></td>
+          <td>用户验证接口</td>
+          <td>用户验证接口</td>
+        </tr>
+		<tr>
+          <td>4</td>
+          <td><a href="user/logout.html" target="_blank">User.logout</a></td>
+          <td>用户登出接口</td>
+          <td>用户使用该接口登出平台</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><a href="user/getuserinfo.html" target="_blank">User.getuserinfo</a></td>
+          <td><a href="#" id="getuserinfo">获取会员信息</a></td>
+          <td>获取会员信息</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><a href="user/setuserinfo.html" target="_blank">User.setuserinfo</a></td>
+          <td>设置更新会员信息</td>
+          <td>设置更新会员信息</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><a href="user/uploadImg.html" target="_blank">User.uploadImg</a></td>
+          <td>上传图片</td>
+          <td>上传图片</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><a href="user/checkSmsResetPw.html" target="_blank">User.checkSmsResetPw</a></td>
+          <td>找回密码————验证短信接口 </td>
+          <td>找回密码————验证短信接口 </td>
+        </tr>
+		<tr>
+          <td>9</td>
+          <td><a href="user/resetPassword.html" target="_blank">User.resetPassword</a></td>
+          <td>找回密码————设置新密码</td>
+          <td>找回密码————设置新密码</td>
+        </tr>
+		<tr>
+          <td>10</td>
+          <td><a href="user/activationUser.html" target="_blank">User.activationUser</a></td>
+          <td>激活</td>
+          <td>激活用户账户</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><a href="user/initialData.html" target="_blank">User.initialData</a></td>
+          <td>首页基本信息</td>
+          <td>首页基本信息</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><a href="user/userTeamlist.html" target="_blank">User.userTeamlist</a></td>
+          <td>获取“我”的下级</td>
+          <td>获取所有“我”的下级</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><a href="user/changePassword.html" target="_blank">User.changePassword</a></td>
+          <td>修改密码</td>
+          <td>修改密码</td>
+        </tr>
+        
+
+        <tr>
+          <td>Sms接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="Sms/sendSMSCode.html" target="_blank">Sms.sendSMSCode</a></td>
+          <td>短信验证码</td>
+          <td>发送短信验证码</td>
+        </tr>
+        
+        <tr>
+          <td>UserMessage接口</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="UserMessage/makeMessage.html" target="_blank">UserMessage.makeMessage</a></td>
+          <td>发表留言或评论</td>
+          <td>发表留言或评论</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="UserMessage/getMessageList.html" target="_blank">UserMessage.getMessageList</a></td>
+          <td>获取留言及评论</td>
+          <td>获取留言及评论</td>
+        </tr>
+		<tr>
+          <td>3</td>
+          <td><a href="UserMessage/deleteMessage.html" target="_blank">UserMessage.deleteMessage</a></td>
+          <td>删除留言及评论</td>
+          <td>删除留言及评论</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

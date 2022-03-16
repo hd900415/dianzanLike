@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<!-- <script type="text/javascript" src="/resource/admin/js/survey.js"></script> -->
+<title>平台概况</title>
+<style type="text/css">
+.form-table th,td{
+	border: 1px #eee solid;
+	height: 50px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+	text-align: right;
+}
+.form-table td input[type='text'], .form-table td input[type='password'], .form-table td input[type='number'], .form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button,.form-table th button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table td span {
+	margin-left: 10px;
+	color: red;
+}
+.form-table tbody tr:hover {
+	background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>首页
+		<span class="c-gray en">&gt;</span>平台概况
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+			<i class="Hui-iconfont">&#xe68f;</i>
+		</a>
+	</nav>
+	<div style="padding: 30px">
+		<table width="100%" class="form-table">
+			<!-- 概况 -->
+			<thead>
+				<tr align="center">
+					<th colspan="6">
+						<h4>概况</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>我的资产</td>
+					<td>¥ {$balance.balance + $balance.frozen_balance}</td>
+					<td>可用额度</td>
+					<td>¥ {$balance.balance}</td>
+					<td>冻结额度</td>
+					<td>¥ {$balance.frozen_balance}</td>
+				</tr>
+				<tr>
+					<td>待付款</td>
+					<td><span style="color: red;">{$count.waitPay ?? 0}</span> 笔</td>
+					<td>待确认收款</td>
+					<td><span style="color: red;">{$count.waitSure ?? 0}</span> 笔</td>
+					<td>今日 <span style="color: red;">{$count.countRecharge ?? 0}</span> 笔充值</td>
+					<td>
+						¥ {$count.countRechargePrice ?? 0}
+						<a href="/admin/order/index" style="color:blue;margin-left:20px;">明细</a>
+					</td>
+				</tr>
+				<tr>
+					<td>今日 <span style="color: red;">{$count.countWithdrawals ?? 0}</span> 笔提款</td>
+					<td>
+						¥ {$count.countWithdrawalsPrice ?? 0}
+						<a href="/admin/withdraw/index" style="color:blue;margin-left:20px;">明细</a>
+					</td>
+					<td>今日入账</td>
+					<td>¥ {$count.countRechargePrice ?? 0}</td>
+					<td>手续费</td>
+					<td>¥ {$count.todayFee ?? 0}</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 进行中订单 -->
+		<table width="100%" class="form-table" style="margin:30px 0;">
+			<thead>
+				<tr align="center">
+					<th colspan="10">
+						<h4>进行中订单</h4>
+					</th>
+				</tr>
+				<tr align="center">
+					<th>订单号</th>
+					<th>创建时间</th>
+					<th>订单类型</th>
+					<th>金额</th>
+					<th>订单状态</th>
+					<th>支付状态</th>
+					<th>支付方式</th>
+					<th>平台订单号</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $orderList}
+				{foreach $orderList as $key=>$value}
+				<tr>
+					<td style="text-align: left;font-weight: normal;">{$value.orderid}</td>
+					<td>{$value.ordertimes|date="m-d H:i"}</td>
+					<td>{$value.ordertypeStr}</td>
+					<td>{$value.oamount}</td>
+					<td>{$value.statusStr}</td>
+					<td>{$value.payway ? '已支付' : '未支付'}</td>
+					<td>
+						{switch $value.payway}
+							{case AliPay}支付宝{/case}
+							{case WechatPay}微信{/case}
+							{default /}银行
+						{/switch}
+					</td>
+					<td>{$value.jorderid}</td>
+					<td></td>
+				</tr>
+				{/foreach}
+				{else /}
+				<tr>
+					<td colspan="9" style="text-align: center;font-weight: normal;color: #999">暂无数据</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+		<div class="page">{$page|raw}</div>
+	</div>
+</body>
+</html>

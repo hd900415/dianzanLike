@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resource/admin/css/admin.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/resource/lib/Hui-iconfont/1.0.9/iconfont.css" />
+<script type="text/javascript" src="/resource/common/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/layer/layer.js"></script>
+<script type="text/javascript" src="/resource/admin/plugs/laydate/laydate.js"></script>
+<script src="/resource/admin/js/initialization.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/resource/admin/js/team.js"></script>
+<title>团队成员二维码列表</title>
+<style type="text/css">
+.form-table th, .form-table td {
+	border: 1px #eee solid;
+	height: 30px;
+	padding: 0 10px;
+}
+.form-table thead th {
+	color: #555;
+	font-weight: 600;
+}
+.form-table td:first-child {
+	font-weight: 600;
+	color: #666;
+}
+input,select,textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 36px;
+	max-width: 250px;
+	padding: 0 10px;
+}
+.form-table td textarea {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px #ddd solid;
+	height: 80px;
+	min-width: 250px;
+	padding: 0 10px;
+}
+.form-table td button,.form-table th button,.button {
+	background: #1e9fff;
+	height: 36px;
+	padding: 5px 15px;
+	border-radius: 4px;
+	border: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.form-table tbody tr:hover {
+	background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>首页
+		<span class="c-gray en">&gt;</span>团队成员二维码列表
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+			<i class="Hui-iconfont">&#xe68f;</i>
+		</a>
+	</nav>
+	<div style="padding: 30px">
+		<div style="float:right; display:block; margin:0px 2px;">
+			<button type="button" class="button" onclick="history.go(-1)">返回</button>
+		</div>
+		<table width="100%" class="form-table">
+			<thead>
+				<tr>
+					<th>二维码类型</th>
+					<th>二维码</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if $data}
+				{foreach $data as $key=>$value}
+				<tr>
+					<td>
+						{switch $value.payway}
+							{case AliPay}支付宝{/case}
+							{case WechatPay}微信{/case}
+							{default /}银联或其他
+						{/switch}
+					</td>
+					<td><span onclick="laytipsimg(this,'{$value.qrcodeurl}')" style="cursor: pointer;">{$value.qrcodeurl}</span></td>
+					<td>{$value.status == 1 ? '正常' : '锁定'}</td>
+					<td>
+						<button type="button" class="button" onClick="onOff(this,'qrcodeStatus',{$value.id},{$value.status == 1 ? 2 : 1},'{$value.status == 1 ? '锁定' : '解锁'}')" style="color: {$value.status == 1 ? '#fff' : 'red'};">{$value.status == 1 ? '正常' : '锁定'}</button>
+						<button type="button" class="button" onClick="onOff(this,'qrcodeDisabled',{$value.id},{$value.enable == 1 ? 2 : 1},'{$value.enable == 1 ? '禁用' : '启用'}')" style="color: {$value.enable == 1 ? '#fff' : 'red'};">{$value.enable == 1 ? '启用' : '禁用'}</button>
+					</td>
+				</tr>
+				{/foreach}
+				{else /}
+				<tr>
+					<td colspan="3" style="text-align: center;font-weight: normal;color: #999">暂无数据</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

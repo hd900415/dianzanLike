@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>添加管理员</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/resource/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resource/css/mylay.css">
+</head>
+<body>
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <form class="layui-form layui-form-pane" action="">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">管理员</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="username" value="{$data.username}" autocomplete="off" placeholder="请输入管理员账号" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">如：admin123</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">密码</label>
+                                <div class="layui-input-inline">
+                                    <input type="password" name="password" autocomplete="off" placeholder="请输入管理员密码" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">如：admin123</div>
+                            </div>
+                            <!-- <div class="layui-form-item">
+                                <label class="layui-form-label">确认密码</label>
+                                <div class="layui-input-inline">
+                                    <input type="password" name="password_r" autocomplete="off" placeholder="请再次输入密码" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">如：admin123</div>
+                            </div> -->
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">安全码</label>
+                                <div class="layui-input-inline">
+                                    <input type="password" name="safe_code" autocomplete="off" placeholder="请输入安全码" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">如：admin123</div>
+                            </div>
+                            <div class="layui-form-item" style="margin-top: 40px;text-align: center;">
+                                <input type="hidden" name="id" value="{$data.id}" autocomplete="off" class="layui-input">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="admins_edit_do">立即提交</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/resource/layuiadmin/layui/layui.js"></script>
+<script src="/resource/js/manage/init_date.js"></script>
+<script src="/resource/js/manage/admins.js"></script>
+</body>
+</html>

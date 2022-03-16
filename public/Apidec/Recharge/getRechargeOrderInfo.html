@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Recharge.getRechargeOrderInfo - 在线接口文档</title>
+
+	<link rel="stylesheet" href="../css/semantic.min.css">
+    <link rel="stylesheet" href="../css/table.min.css">
+    <link rel="stylesheet" href="../css/container.min.css">
+    <link rel="stylesheet" href="../css/message.min.css">
+    <link rel="stylesheet" href="../css/label.min.css">
+
+</head>
+
+<body>
+
+<br /> 
+
+    <div class="ui text container" style="max-width: none !important;">
+        <div class="ui floating message">
+			<h2 class="ui header">接口：Recharge.getRechargeOrderInfo</h2><br/><span class="ui teal tag label"> 获取充值订单信息</span>            
+			<div class="ui raised segment">
+                <span class="ui red ribbon label">接口说明</span>
+                <div class="ui message">
+                    <p> 获取充值订单信息</p>
+                </div>
+            </div>
+            <h3>接口参数</h3>
+            <table class="ui red celled striped table" >
+                <thead>
+                    <tr><th>参数名字</th><th>类型</th><th>是否必须</th><th>默认值</th><th>其他</th><th>说明</th></tr>
+                </thead>
+                <tbody>
+                	<tr><td>token</td><td>字符串</td><td><font color="red">必须</font></td><td></td><td></td><td>登录标志</td></tr>
+                	<tr><td>rechargeOrder_id</td><td>数字</td><td><font color="red">必须</font></td><td></td><td></td><td>充值订单表id</td></tr>
+                	
+                </tbody>
+            </table>
+            <h3>返回结果</h3>
+            <table class="ui green celled striped table" >
+                <thead>
+                    <tr><th width="91">返回字段</th><th width="182">类型</th><th width="1505">说明</th></tr>
+                </thead>
+                <tbody>
+					<tr>
+						<td>data.code</td><td>整型</td><td>操作码，<br/>
+							code = 0 <br/>
+							code = 1
+						</td>
+					</tr>
+					<tr><td>data.code_dec</td><td>字符串</td><td>返回代码描述</td></tr>
+               		<tr><td>data.info.id</td><td>数字</td><td>订单表id</td></tr>
+               		<tr><td>data.info.order_number</td><td>字符串</td><td>订单号</td></tr>
+               		<tr><td>data.info.money</td><td>数字</td><td>充值金额</td></tr>
+               		<tr><td>data.info.u_name</td><td>字符串</td><td>收款人姓名</td></tr>
+               		<tr><td>data.info.account_receivable</td><td>数字</td><td>收款人账号</td></tr>
+               		<tr><td>data.info.bank_name</td><td>字符串</td><td>收款人银行名称</td></tr>
+               		<tr><td>data.info.state</td><td>数字</td><td>订单状态</td></tr>
+               		<tr><td>data.info.fee</td><td>数字</td><td>手续费</td></tr>
+               		
+                </tbody>
+        </table>
+		</div>
+    </div>
+</body>
+</html>

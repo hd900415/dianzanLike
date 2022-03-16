@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Record.getRecordList - 在线接口文档</title>
+<link rel="stylesheet" href="../css/semantic.min.css">
+<link rel="stylesheet" href="../css/table.min.css">
+<link rel="stylesheet" href="../css/container.min.css">
+<link rel="stylesheet" href="../css/message.min.css">
+<link rel="stylesheet" href="../css/label.min.css">
+</head>
+
+<body>
+<br />
+<div class="ui text container" style="max-width: none !important;">
+  <div class="ui floating message">
+    <h2 class="ui header">接口：Record.getRecordList</h2>
+    <br/>
+    <span class="ui teal tag label"> 获取聊天记录</span>
+    <div class="ui raised segment"> <span class="ui red ribbon label">接口说明</span>
+      <div class="ui message">
+        <p> 获取聊天记录</p>
+      </div>
+    </div>
+    <h3>接口参数</h3>
+    <table class="ui red celled striped table" >
+      <thead>
+        <tr>
+          <th>参数名字</th>
+          <th>类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>其他</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：1</td>
+          <td>时间标签</td>
+        </tr>
+        <tr>
+          <td>uid</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：16</td>
+          <td>用户ID</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：16</td>
+          <td>友聊就是好友表Id/群聊就是群表Id</td>
+        </tr>
+        <tr>
+          <td>chat_type</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：16</td>
+          <td>聊天类型 / 1是友聊/2群聊/3好友添加回复（不显示在密聊，只显示在好友邀请回复）/ 4群公告 @所以人 /5修改群名称 /6修改群公告</td>
+        </tr>
+        <tr>
+          <td>page_no</td>
+          <td>时间</td>
+          <td>可选</td>
+          <td>1</td>
+          <td>最小：1</td>
+          <td>页数</td>
+        </tr>
+        <tr>
+          <td>page_size</td>
+          <td>时间</td>
+          <td>可选</td>
+          <td>10</td>
+          <td>最小：1</td>
+          <td>每页显示条数</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>返回结果</h3>
+    <table class="ui green celled striped table" >
+      <thead>
+        <tr>
+          <th width="91">返回字段</th>
+          <th width="182">类型</th>
+          <th width="1505">说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data.code</td>
+          <td>整型</td>
+          <td>操作码，<br/>
+            code = 0 <br/>
+            code = 1 </td>
+        </tr>
+        <tr>
+          <td>data.code_dec</td>
+          <td>字符串</td>
+          <td>返回代码描述</td>
+        </tr>
+        <tr>
+          <td>data.list[n]</td>
+          <td>array</td>
+          <td>
+            tit      标题(私聊用户名/用户昵称)<br>
+            title    昵称<br>
+            num      群成员数<br>
+            header   头像<br>
+            content 聊天内容<br>
+            is_send 是否是自己发的聊天1是/0<br>
+            chat_type  聊天类型 / 1是友聊/2群聊/3好友添加回复（不显示在密聊，只显示在好友邀请回复）/ 4群公告 @所以人 /5修改群名称 /6修改群公告<br>
+            time  聊天聊天时间<br></td>
+        </tr>
+        <tr>
+          <td>data_total_nums</td>
+          <td>整型</td>
+          <td>总数据条数</td>
+        </tr>
+        <tr>
+          <td>data_total_page</td>
+          <td>整型</td>
+          <td>总页数</td>
+        </tr>
+        <tr>
+          <td>data_current_page</td>
+          <td>整型</td>
+          <td>当前页</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

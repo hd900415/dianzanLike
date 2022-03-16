@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FriendsCircle.deleteMessage - 在线接口文档</title>
+<link rel="stylesheet" href="../css/semantic.min.css">
+<link rel="stylesheet" href="../css/table.min.css">
+<link rel="stylesheet" href="../css/container.min.css">
+<link rel="stylesheet" href="../css/message.min.css">
+<link rel="stylesheet" href="../css/label.min.css">
+</head>
+
+<body>
+<br />
+<div class="ui text container" style="max-width: none !important;">
+  <div class="ui floating message">
+    <h2 class="ui header">接口：FriendsCircle.deleteMessage</h2>
+    <br/>
+    <span class="ui teal tag label"> 删除朋友圈留言</span>
+    <div class="ui raised segment"> <span class="ui red ribbon label">接口说明</span>
+      <div class="ui message">
+        <p> 删除朋友圈留言</p>
+      </div>
+    </div>
+    <h3>接口参数</h3>
+    <table class="ui red celled striped table" >
+      <thead>
+        <tr>
+          <th>参数名字</th>
+          <th>类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>其他</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：1</td>
+          <td> 时间标签</td>
+        </tr>
+        <tr>
+          <td>message_id</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：11</td>
+          <td>留言ID</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>返回结果</h3>
+    <table class="ui green celled striped table" >
+      <thead>
+        <tr>
+          <th width="91">返回字段</th>
+          <th width="182">类型</th>
+          <th width="1505">说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data.code</td>
+          <td>整型</td>
+          <td>操作码，<br/>
+            code = 0 删除失败<br/>
+            code = 1 删除成功</td>
+        </tr>
+        <tr>
+          <td>data.code_dec</td>
+          <td>字符串</td>
+          <td>返回代码描述</td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

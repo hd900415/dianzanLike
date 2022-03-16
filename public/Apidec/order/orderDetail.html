@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>order.orderDetail - 在线接口文档</title>
+<link rel="stylesheet" href="../css/semantic.min.css">
+<link rel="stylesheet" href="../css/table.min.css">
+<link rel="stylesheet" href="../css/container.min.css">
+<link rel="stylesheet" href="../css/message.min.css">
+<link rel="stylesheet" href="../css/label.min.css">
+</head>
+
+<body>
+<br />
+<div class="ui text container" style="max-width: none !important;">
+  <div class="ui floating message">
+    <h2 class="ui header">接口：orderorderDetail</h2>
+    <br/>
+    <span class="ui teal tag label"> 订单详细</span>
+    <div class="ui raised segment"> <span class="ui red ribbon label">接口说明</span>
+      <div class="ui message">
+        <p> 订单详细</p>
+      </div>
+    </div>
+    <h3>接口参数</h3>
+    <table class="ui red celled striped table" >
+      <thead>
+        <tr>
+          <th>参数名字</th>
+          <th>类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>其他</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token</td>
+          <td>字符串</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：1</td>
+          <td>时间标签</td>
+        </tr>
+        <tr>
+          <td>uid</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：16</td>
+          <td>用户ID</td>
+        </tr>
+        <tr>
+          <td>orderid</td>
+          <td>整数</td>
+          <td><font color="red">必须</font></td>
+          <td></td>
+          <td> 最小：6 最大：16</td>
+          <td>订单ID</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>返回结果</h3>
+    <table class="ui green celled striped table" >
+      <thead>
+        <tr>
+          <th width="91">返回字段</th>
+          <th width="182">类型</th>
+          <th width="1505">说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data.code</td>
+          <td>整型</td>
+          <td>操作码，<br/>
+            code = 0 <br/>
+            code = 1 </td>
+        </tr>
+        <tr>
+          <td>data.code_dec</td>
+          <td>字符串</td>
+          <td>返回代码描述</td>
+        </tr>
+        <tr>
+          <td>data.oamount</td>
+          <td>字符串</td>
+          <td>订单金额</td>
+        </tr>
+        <tr>
+          <td>data.payway</td>
+          <td>字符串</td>
+          <td>是否方式(AliPay支付宝扫码支付)(WechatPay微信扫码支付)</td>
+        </tr>
+        <tr>
+          <td>data.qrcodeurl</td>
+          <td>字符串</td>
+          <td>支付的二维码</td>
+        </tr>
+        <tr>
+          <td>data.status</td>
+          <td>字符串</td>
+          <td>订单状态</td>
+        </tr>
+        <tr>
+          <td>data.statusdec</td>
+          <td>字符串</td>
+          <td>订单状态说明</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
